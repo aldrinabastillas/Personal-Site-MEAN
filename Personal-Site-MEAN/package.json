@@ -1,0 +1,9 @@
+{
+  "name": "personal-site-mean",
+  "version": "0.0.0",
+  "description": "Personal-Site-MEAN",
+  "main": "server.js",
+  "author": {
+    "name": "Aldrin Abastillas"
+  }
+}
