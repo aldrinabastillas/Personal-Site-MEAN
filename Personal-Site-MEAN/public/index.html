@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en-us" ng-app="mainApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal development projects, contact information, resume, and other info." />
+    <title>Aldrin Abastillas - Home</title>
+
+    <!-- Vendor Packages-->
+    <script src="/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/vendor/angular/angular.min.js"></script>
+    <script src="/vendor/angular-route/angular-route.min.js"></script>
+
+    <!-- Javascript -->
+    <script src="/public/client/app.js"></script>
+    <script src="/directives/home-directives.js"></script>
+    <script src="/spotifyScripts/directives/spotify-directives.js"></script>
+    <script src="/spotifyScripts/controllers/spotifyController.js"></script>
+    <script src="/spotifyScripts/controllers/predictionController.js"></script>
+    <script src="/spotifyScripts/controllers/tableController.js"></script>
+    <script src="/spotifyScripts/tablesort.js"></script>
+    <dependencies></dependencies>
+
+</head>
+<body ng-controller="MainController" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <ng-view autoscroll="true"></ng-view>
+    <footer class="text-center">
+        <h4>-{{year}}-</h4>
+    </footer>
+</body>
+</html>

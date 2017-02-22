@@ -1,0 +1,97 @@
+﻿/*#region Colors*/
+a, a:hover,
+.ui.sortable.table thead th,
+.ui.inverted.sortable.table thead th.sorted {
+    color: #42DCA3;
+}
+
+footer h4 {
+    color: white;
+}
+
+.spotifyApp {
+    background-color: black;
+    color: white;
+    margin-top: 60px;
+}
+
+.panel-default > .panel-heading {
+    background-color: #272727;
+    border-color: rgba(0,0,0,0.6);
+}
+
+.panel {
+    background-color: #2e3338;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.panel-title {
+    color: #42DCA3;
+}
+
+#yearDropdown {
+    color: black;
+}
+/*#endregion*/
+
+/*#region Overrides*/
+.ui.icon.input, .results {
+    min-width: 100%;
+}
+
+.ui.inverted.sortable.table thead th.sorted,
+.ui.sortable.table thead th {
+    color: #42DCA3;
+}
+/*#endregion*/
+
+/*#region Layout & Text*/
+#subpageNavbar .container {
+    margin-left: 8px;
+}
+
+@media (max-width: 767px) {
+    #subpageNavbar .navbar-brand {
+        display: none;
+    }
+}
+
+#playerSection {
+    display: flex;
+    justify-content: center;
+}
+
+#predictionSection {
+    height: 410px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#searchHelp {
+    position: relative;
+    transform: translateY(120%);
+}
+
+#errorText,
+#predictionText {
+    line-height: 150%;
+}
+
+#billboardTable {
+    overflow-y: scroll;
+    height: 335px;
+}
+
+#accordion li {
+    /*Don't use > in selector as li isn't a direct child*/
+    margin: 8px auto; /*Increase spacing between bullet points*/
+}
+
+    #accordion li:last-child {
+        margin-bottom: 25px;
+    }
+/*#endregion Layout & Text*/
+
+
+

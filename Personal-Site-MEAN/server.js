@@ -1,6 +1,19 @@
-﻿var http = require('http');
+﻿/* Modules */
+var http = require('http');
+var express = require('express');
+var path = require('path');
+
+/* Server Set-Up */
+var server = express();
 var port = process.env.port || 1337;
-http.createServer(function (req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello World\n');
-}).listen(port);
+
+/* Middleware */
+server.use(express.static('public'));
+
+/* Routes */
+var router = require('./router');
+server.use('/', router);
+
+server.listen(port, () => {
+    console.log("server.js listening on port " + port);
+});

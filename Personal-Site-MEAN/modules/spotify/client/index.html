@@ -1,0 +1,24 @@
+﻿<meta name="viewport" content="width=device-width" />
+<!-- TODO: Fix Title on ng-view -->
+<title>Billboard Top 100 Predictor</title>
+
+<!-- CSS -->
+<link href="/vendor/semantic-ui/dist/semantic.min.css" rel="stylesheet" type="text/css" />
+<link href="/modules/spotify/client/css/index.css" rel="stylesheet" type="text/css">
+
+<subpage-nav-bar></subpage-nav-bar>
+
+<div ng-app="spotifyApp" class="spotifyApp container-fluid">
+    <div>
+        <!--Row 1 -->
+        <div class="row">
+            <player-column></player-column>
+            <prediction-column></prediction-column>
+            <table-column></table-column>
+        </div>
+        <br />
+
+        <!-- Row 2 -->
+        <description-panels></description-panels>
+    </div>
+</div>

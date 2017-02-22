@@ -1,0 +1,35 @@
+﻿<div class="col-md-4 col-lg-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h5 class="panel-title">Billboard Hot 100 Songs</h5>
+        </div>
+        <div class="panel-body" id="billboardSection">
+            <form>
+                <label for="yearDropdown">Year: &nbsp;</label>
+                <select name="singleSelect" id="yearDropdown"
+                        ng-model="spotify.selectedYear" ng-change="spotify.getYearList(spotify.selectedYear)"
+                        ng-options="year for year in spotify.availableYears"></select>
+            </form>
+            <br />
+
+            <div id="billboardTable">
+                <table class="ui inverted sortable selectable striped celled unstackable compact table">
+                    <thead>
+                        <tr>
+                            <th class="sorted ascending">#</th>
+                            <th>Song</th>
+                            <th>Artist</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="song in spotify.billboardSongs">
+                            <td class="left aligned">{{song.Position}}</td>
+                            <td>{{song.Song}}</td>
+                            <td>{{song.Artist}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

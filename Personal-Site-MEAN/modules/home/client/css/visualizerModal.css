@@ -1,0 +1,57 @@
+﻿/*#region General Styles*/
+.modal-body p {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.modal-body a {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: none;
+}
+
+/* Responsive YouTube iframe
+     from https://www.smashingmagazine.com/2014/02/making-embedded-content-work-in-responsive-design/ */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+/*#endregion General Styles*/
+
+/*region Colors*/
+.modal-content {
+    background: #2e3338;
+}
+
+.nav-tabs{
+    border-bottom: 1px solid #1c1e22
+}
+
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus {
+    border-color: #1c1e22 #1c1e22 #1c1e22;
+    background-color: #3e444c;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    color: #fff;
+    background-color: #3e444c;
+    border: 1px solid #1c1e22;
+    border-bottom-color: transparent;
+}
+/*endregion Colors*/

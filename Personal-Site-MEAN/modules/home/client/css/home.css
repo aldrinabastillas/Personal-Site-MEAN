@@ -1,0 +1,397 @@
+/*Condensed and edited version of Grayscale theme from http://startbootstrap.com/template-overviews/grayscale
+ *
+ * Start Bootstrap - Grayscale v3.3.7+1 
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ *
+ */
+
+/*#region General Styles*/
+html {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 30px;
+    text-transform: uppercase;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: none;
+}
+
+#projects h2, #contact h2, #images h6 {
+    text-decoration: underline;
+}
+
+p {
+    margin: 0 0 25px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+    p {
+        margin: 0 0 35px;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+}
+
+a {
+    color: white;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+    a:hover {
+        color: #42DCA3;
+        text-decoration: none;
+    }
+
+.container-fluid{
+    margin-top: 60px;
+}
+
+.tab-pane{
+    align-content: center;
+}
+/*#endregion General Styles*/
+
+/*#region NavBar*/
+.navbar-custom {
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: black;
+    outline: none;
+    color: white;
+}
+
+    .navbar-custom .navbar-toggle {
+        color: #42DCA3;
+        background-color: rgba(255, 255, 255, 0.2);
+        font-size: 12px;
+        float: left;
+        margin-left: 9px;
+    }
+
+    .navbar-custom .navbar-brand {
+        font-weight: 700;
+        display: none;
+    }
+
+    .navbar-custom .nav li a {
+        -webkit-transition: background 0.3s ease-in-out;
+        -moz-transition: background 0.3s ease-in-out;
+        transition: background 0.3s ease-in-out;
+    }
+
+        .navbar-custom .nav li a:focus,
+        .navbar-custom .nav li a:hover,
+        .navbar-custom .nav li a:active,
+        .navbar-custom .nav li.active a,
+        .navbar-custom .nav li.active a:hover {
+            color: #42DCA3;
+            background-color: transparent;
+        }
+
+@media (min-width: 768px) {
+    .navbar-custom {
+        padding: 20px 0;
+        border-bottom: none;
+        letter-spacing: 1px;
+        background: transparent;
+        -webkit-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+        -moz-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+        transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+    }
+
+        .navbar-custom.top-nav-collapse {
+            padding: 0;
+            background: black;
+        }
+
+            .navbar-custom.top-nav-collapse .navbar-brand {
+                display: inline;
+            }
+}
+
+#subpageNavbar .container{
+    margin-left: 8px;
+}
+
+@media (max-width: 767px) {
+    #subpageNavbar .navbar-brand{
+        display: none;
+    }
+}
+/*#endregion NavBar*/
+
+/*#region Intro Header*/
+.intro {
+    display: table;
+    width: 100%;
+    height: auto;
+    padding: 100px 0;
+    text-align: center;
+    color: white;
+    background: url(/modules/home/client/content/images/alaska.jpg);
+    background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.intro-header {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.intro .intro-header .brand-heading {
+    font-size: 40px;
+}
+
+.intro .intro-header .intro-text {
+    font-size: 18px;
+}
+
+@media (min-width: 768px) {
+    .intro {
+        /*height: 100%;*/ /*doesn't seem to work with ng-view*/
+        height: 100vh;
+        padding: 0;
+    }
+
+        .intro .intro-header .brand-heading {
+            font-size: 70px;
+        }
+
+        .intro .intro-header .intro-text {
+            font-size: 26px;
+        }
+}
+/*#endregion Intro Section*/
+
+/*#region Circle Button*/
+.btn-circle {
+    width: 70px;
+    height: 70px;
+    margin-top: 15px;
+    border: 2px solid white;
+    border-radius: 100%;
+    font-size: 40px;
+    color: white;
+    background: transparent;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+}
+
+    .btn-circle animated {
+        -webkit-transition-property: -webkit-transform;
+        -webkit-transition-duration: 1s;
+        -moz-transition-property: -moz-transform;
+        -moz-transition-duration: 1s;
+    }
+
+    .btn-circle:hover animated {
+        -webkit-animation-name: pulse;
+        -moz-animation-name: pulse;
+        -webkit-animation-duration: 1.5s;
+        -moz-animation-duration: 1.5s;
+        -webkit-animation-iteration-count: infinite;
+        -moz-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+        -moz-animation-timing-function: linear;
+    }
+/*#endregion Circle Button*/
+
+/*#region Projects Section*/
+.projects-section {
+    padding-top: 50px;
+}
+
+@media (min-width: 767px) {
+    .projects-section {
+        padding: 100px 0;
+    }
+}
+
+#visualizerGif{
+    background: url(/modules/home/client/content/images/visualizer.gif) no-repeat center;
+}
+
+#billboardImage{
+     background: url(/modules/home/client/content/images/billboard.jpg) no-repeat center;
+}
+
+.projectThumb {
+    height: 300px;
+    width: 300px;
+    margin: auto;
+    position: relative;
+}
+
+    .projectThumb a {
+        position: absolute;
+        visibility: hidden;
+        top: 40%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+    }
+
+    .projectThumb:hover > .overlay {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 10;
+    }
+
+    .projectThumb:hover a {
+        visibility: visible;
+        color: #42DCA3;
+    }
+
+@media (max-width: 767px) {
+    .projectThumb a {
+        visibility: visible;
+        color: #42DCA3;
+    }
+
+    .projectThumb > .overlay {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 10;
+    }
+}
+/*#endregion Project Section*/
+
+/*#region Button Class*/
+.btn {
+    text-transform: uppercase;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+    .btn:focus, .btn:hover {
+        outline: none;
+        color: #42DCA3;
+        background: rgba(66, 220, 163, 0.2);
+        border-color: #42DCA3;
+    }
+
+.btn-success {
+    background-color: #329873;
+    background-image: none; /*Override Bootstrap colors*/
+}
+
+/*#endregion Button Class*/
+
+/*#region Contact Section*/
+.contact-section {
+    width: 100%;
+    padding: 50px 0;
+    color: white;
+    background: url(/modules/home/client/content/images/madison.jpg);
+    background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+@media (max-width: 767px) {
+    .contact-section {
+        padding: 100px 0;
+    }
+}
+/*#endregion Contact Section*/
+
+/*#region Images Section*/
+#images, #images p {
+    text-align: center;
+    font-size: 12px;
+}
+
+    #images h6 {
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+
+    #images p {
+        font-style: italic;
+    }
+
+@media (max-width: 767px) {
+    #images p {
+        font-size: 8px;
+    }
+}
+/*#endregion*/
+
+/*#region Footer*/
+footer {
+    padding: 50px 0;
+}
+
+    footer p {
+        margin: 0;
+    }
+/*#endregion Footer*/
+
+/*#region Selection*/
+::-moz-selection {
+    text-shadow: none;
+    background: #fcfcfc;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+::selection {
+    text-shadow: none;
+    background: #fcfcfc;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+img::selection {
+    background: transparent;
+}
+
+img::-moz-selection {
+    background: transparent;
+}
+/*#endregion Selection*/
+
+/*#region Parallax*/
+.parallax {
+    background-attachment: fixed;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media (max-width: 767px) {
+    .parallax {
+        background-attachment: scroll; /*Remove parallax on mobile*/
+    }
+}
+/*#endregion Parallax*/

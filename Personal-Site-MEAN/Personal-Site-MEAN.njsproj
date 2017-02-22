@@ -30,7 +30,42 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="modules\home\client\menuBar.js" />
+    <Compile Include="modules\home\client\directives\home-directives.js" />
+    <Compile Include="modules\spotify\client\controllers\predictionController.js" />
+    <Compile Include="modules\spotify\client\controllers\spotifyController.js" />
+    <Compile Include="modules\spotify\client\controllers\tableController.js" />
+    <Compile Include="modules\spotify\client\tablesort.js" />
+    <Compile Include="modules\spotify\client\directives\spotify-directives.js" />
+    <Compile Include="modules\spotify\server\spotifyApiModule.js" />
+    <Compile Include="modules\spotify\server\predictionModule.js" />
+    <Compile Include="public\client\app.js" />
+    <Compile Include="router.js" />
     <Compile Include="server.js" />
+    <Content Include="modules\home\client\css\home.css" />
+    <Content Include="modules\home\client\index.html" />
+    <Content Include="modules\spotify\client\css\index.css" />
+    <Content Include="modules\spotify\client\index.html" />
+    <Content Include="modules\home\client\content\documents\Aldrin F Abastillas - Resume 2017.docx" />
+    <Content Include="modules\home\client\content\images\alaska.jpg" />
+    <Content Include="modules\home\client\content\images\billboard.jpg" />
+    <Content Include="modules\home\client\content\images\madison.jpg" />
+    <Content Include="modules\home\client\content\images\visualizer.gif" />
+    <Content Include="modules\home\client\css\visualizerModal.css" />
+    <Content Include="modules\home\client\templates\contact.html" />
+    <Content Include="modules\home\client\templates\images.html" />
+    <Content Include="modules\home\client\templates\introHeader.html" />
+    <Content Include="modules\home\client\templates\navigationBar.html" />
+    <Content Include="modules\home\client\templates\projects.html" />
+    <Content Include="modules\home\client\templates\visualizer.html" />
+    <Content Include="modules\home\client\templates\dependencies.html" />
+    <Content Include="modules\spotify\client\templates\descriptionPanels.html" />
+    <Content Include="modules\spotify\client\templates\playerColumn.html" />
+    <Content Include="modules\spotify\client\templates\predictionColumn.html" />
+    <Content Include="modules\spotify\client\templates\subpageNavBar.html" />
+    <Content Include="modules\spotify\client\templates\tableColumn.html" />
+    <Content Include="semantic.json" />
+    <Content Include="public\index.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config" />
     <Content Include="bin\ChangeConfig.ps1" />
@@ -42,6 +77,42 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
+    <Folder Include="modules\home\" />
+    <Folder Include="modules\spotify\client\css\" />
+    <Folder Include="modules\home\client\content\documents\" />
+    <Folder Include="modules\home\client\content\images\" />
+    <Folder Include="modules\" />
+    <Folder Include="modules\home\client\" />
+    <Folder Include="modules\home\client\directives\" />
+    <Folder Include="modules\home\client\templates\" />
+    <Folder Include="modules\home\client\css\" />
+    <Folder Include="modules\home\client\content\" />
+    <Folder Include="modules\spotify\" />
+    <Folder Include="modules\spotify\client\" />
+    <Folder Include="modules\spotify\client\controllers\" />
+    <Folder Include="modules\spotify\client\templates\" />
+    <Folder Include="modules\spotify\client\directives\" />
+    <Folder Include="modules\spotify\server\" />
+    <Folder Include="public\client\" />
+    <Folder Include="typings\globals\jquery\" />
+    <Folder Include="typings\modules\" />
+    <Folder Include="typings\modules\angular\" />
+    <Folder Include="typings\modules\express\" />
+    <Folder Include="public\" />
+    <Folder Include="typings\" />
+    <Folder Include="typings\globals\" />
+    <Folder Include="typings\globals\bootstrap\" />
+    <Folder Include="typings\globals\node\" />
+    <Folder Include="typings\globals\semantic-ui\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\jquery\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\semantic-ui\index.d.ts" />
+    <TypeScriptCompile Include="typings\index.d.ts" />
+    <TypeScriptCompile Include="typings\modules\angular\index.d.ts" />
+    <TypeScriptCompile Include="typings\modules\express\index.d.ts" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

@@ -1,0 +1,30 @@
+﻿<div ng-controller="PredictionController" class="col-md-4 col-lg-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">Predictions</h4>
+        </div>
+        <div class="panel-body" id="predictionSection">
+            <div id="songSearch" class="ui search">
+                <div class="ui icon input">
+                    <input class="prompt" type="text"
+                           placeholder="Search for a song!" ng-model="searchTerm">
+                    <i class="search icon"></i>
+                </div>
+                <div class="results"></div>
+            </div>
+            <br />
+            <div ng-hide="prediction || errorText" id="searchHelp">
+                <p>
+                    Search above for a song to predict if it would be on
+                    the Billboard Hot 100 chart!
+                </p>
+            </div>
+            <h3 ng-show="errorText" id="errorText">{{errorText}}</h3>
+            <h2 ng-show="prediction" id="predictionText">
+                {{selectedSong}} by {{selectedArtist}} <br />
+                is {{probability}} {{prediction}} <br />
+                to be a Billboard Top 100 Song.
+            </h2>
+        </div>
+    </div>
+</div>
