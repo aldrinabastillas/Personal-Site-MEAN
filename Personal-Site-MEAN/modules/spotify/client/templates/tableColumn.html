@@ -1,4 +1,4 @@
-﻿<div class="col-md-4 col-lg-4">
+﻿<div class="col-md-4 col-lg-4" ng-controller="TableController">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h5 class="panel-title">Billboard Hot 100 Songs</h5>
@@ -7,8 +7,8 @@
             <form>
                 <label for="yearDropdown">Year: &nbsp;</label>
                 <select name="singleSelect" id="yearDropdown"
-                        ng-model="spotify.selectedYear" ng-change="spotify.getYearList(spotify.selectedYear)"
-                        ng-options="year for year in spotify.availableYears"></select>
+                        ng-model="selectedYear" ng-change="getYearList(selectedYear)"
+                        ng-options="year for year in availableYears"></select>
             </form>
             <br />
 
@@ -22,7 +22,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="song in spotify.billboardSongs">
+                        <tr ng-repeat="song in billboardSongs">
                             <td class="left aligned">{{song.Position}}</td>
                             <td>{{song.Song}}</td>
                             <td>{{song.Artist}}</td>

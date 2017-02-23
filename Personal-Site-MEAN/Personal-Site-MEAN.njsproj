@@ -37,6 +37,7 @@
     <Compile Include="modules\spotify\client\controllers\tableController.js" />
     <Compile Include="modules\spotify\client\tablesort.js" />
     <Compile Include="modules\spotify\client\directives\spotify-directives.js" />
+    <Compile Include="modules\spotify\server\tableModule.js" />
     <Compile Include="modules\spotify\server\spotifyApiModule.js" />
     <Compile Include="modules\spotify\server\predictionModule.js" />
     <Compile Include="public\client\app.js" />
@@ -104,6 +105,7 @@
     <Folder Include="typings\globals\bootstrap\" />
     <Folder Include="typings\globals\node\" />
     <Folder Include="typings\globals\semantic-ui\" />
+    <Folder Include="typings\modules\mongodb\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
@@ -113,6 +115,7 @@
     <TypeScriptCompile Include="typings\index.d.ts" />
     <TypeScriptCompile Include="typings\modules\angular\index.d.ts" />
     <TypeScriptCompile Include="typings\modules\express\index.d.ts" />
+    <TypeScriptCompile Include="typings\modules\mongodb\index.d.ts" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

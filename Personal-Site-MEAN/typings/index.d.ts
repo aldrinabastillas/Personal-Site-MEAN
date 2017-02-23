@@ -4,3 +4,4 @@
 /// <reference path="globals/semantic-ui/index.d.ts" />
 /// <reference path="modules/angular/index.d.ts" />
 /// <reference path="modules/express/index.d.ts" />
+/// <reference path="modules/mongodb/index.d.ts" />

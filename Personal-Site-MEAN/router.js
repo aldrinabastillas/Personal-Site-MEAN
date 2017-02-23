@@ -2,6 +2,7 @@
 var express = require('express');
 var path = require('path');
 var predictions = require('./modules/spotify/server/predictionModule');
+var table = require('./modules/spotify/server/tableModule');
 
 /* Routes */
 var router = express.Router();
@@ -31,6 +32,17 @@ router.get('/getPrediction:songId', (req, res) => {
     }
     else {
         res.status(500).json('Could not find selected song');
+    }
+});
+
+router.get('/getYearList:year', (req, res) => {
+    var year = req.params.year;
+    if (year) {
+        table.getYearList(year).then(function (result) {
+            res.json(result);
+        }).catch(function (reason) {
+            res.status(500).json(reason);
+        });
     }
 });
 

@@ -22,6 +22,28 @@
             return {
                 restrict: 'E',
                 templateUrl: '/modules/spotify/client/templates/tableColumn.html',
+                //controller: 'TableController',
+                //controllerAs: 'tableCtrl',
+                //bindToController: true,
+                //scope: {
+                //    populateDropdown: '&populateDropdown',
+                //    billboardSongs: '='
+                //},
+                link: function (scope, element) {
+                    $('table').tablesort(); //sets up a sortable table, see http://semantic-ui.com/collections/table.html#sortable
+
+                    $('a[role="button"]').click(function () { //flip accordion panel arrows
+                        if ($(this).attr('aria-expanded') == 'true') {
+                            $(this).children('span').attr('class', 'panelArrow glyphicon glyphicon-chevron-down');
+                        }
+                        else {
+                            $(this).children('span').attr('class', 'panelArrow glyphicon glyphicon-chevron-up');
+                        }
+                    });
+
+                    //scope.populateDropdown();
+
+                }
             }
         })
         .directive('descriptionPanels', function () {
