@@ -6,7 +6,8 @@ var app = express();
 
 /* Public Methods */
 /**
- * 
+ * Given a song ID, first gets its audio features and release year, and sends this to the Machine Learning Web Service.
+ * Returns the algorithm's prediction
  * @param songId
  */
 exports.getPrediction = function (songId) {
@@ -32,7 +33,8 @@ exports.getPrediction = function (songId) {
 
 /* Private Methods*/
 /**
- * 
+ * Given a song's audio features and release year, first formats it into the expected input format.
+ * Next calls out to the machine learning web service with the appropriate API key and headers
  * @param audioFeatures
  * @param date
  */

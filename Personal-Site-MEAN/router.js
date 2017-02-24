@@ -10,17 +10,20 @@ function Path(file) {
     return path.join(__dirname + file);
 }
 
+//define root paths
 router.use('/', express.static(__dirname));
 router.use('/vendor', express.static(__dirname + '/node_modules/'));
-router.use('/directives', express.static(__dirname + '/modules/home/client/directives/'));
-router.use('/spotifyScripts', express.static(__dirname + '/modules/spotify/client/'));
+router.use('/home', express.static(__dirname + '/modules/home/client'));
+router.use('/spotify', express.static(__dirname + '/modules/spotify/client/'));
 
+//download resume link on /module/home/client/templates/contact.html
 router.get('/resume', (req, res) => {
     var fileName = 'Aldrin F Abastillas - Resume 2017.docx';
     var filePath = Path('/modules/home/client/content/documents/' + fileName);
     res.download(filePath, fileName);
 });
 
+//called from /module/spotify/client/module/predictionColumn.html
 router.get('/getPrediction:songId', (req, res) => {
     var songId = req.params.songId;
     if (songId) {
@@ -35,6 +38,7 @@ router.get('/getPrediction:songId', (req, res) => {
     }
 });
 
+//called from /module/spotify/client/module/tableColumn.html
 router.get('/getYearList:year', (req, res) => {
     var year = req.params.year;
     if (year) {

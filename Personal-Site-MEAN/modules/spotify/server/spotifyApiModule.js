@@ -3,7 +3,10 @@
     var request = require('request');
 
     /* Public Methods */
-    /**
+    /** Given a song selected from the dropdown in /modules/spotify/client/templates/predictionColumn.html
+     * returns the song's audio features. 
+     * See https://developer.spotify.com/web-api/get-audio-features/
+     * Calls https://api.spotify.com/v1/audio-features/{id}
      * @param songId
      */
     exports.getAudioFeatures = function (songId) {
@@ -34,7 +37,9 @@
 
     /* Private Methods */
     /**
-     * Gets the album ID for a song
+     * Gets the album ID for a song.
+     * See https://developer.spotify.com/web-api/get-track/
+     * Calls https://api.spotify.com/v1/tracks/{id}
      * @param songId
      */
     function getAlbumId(songId) {
@@ -53,7 +58,9 @@
     };
 
     /**
-     * 
+     * Gets the release date for an album
+     * See https://developer.spotify.com/web-api/get-album/
+     * Calls https://api.spotify.com/v1/albums/{id}
      * @param albumId
      */
     function getAlbumReleaseDate(albumId) {
@@ -72,10 +79,12 @@
     }
 
     /**
-     * 
+     * First gets an access token, and then given a Spotify API endpoint, returns the response
      * @param endpoint
      */
     function sendSpotifyQuery(endpoint) {
+        // Gets an access token for Spotify's Web APIs
+        // See https://developer.spotify.com/web-api/authorization-guide/#client-credentials-flow
         return new Promise(function (resolve, reject) {
             var client_id = '3af0f886f6e1419e824f334d91f4b8ff';
             var client_secret = 'c44eb13f52ec433fafc69e05fb3581bb';
@@ -90,6 +99,7 @@
                 json: true
             };
 
+            //Sends request to a given endpoint with the access token 
             request.post(authOptions, function (error, response, body) {
                 if (!error && response.statusCode === 200) {
                     var accessToken = body.access_token;

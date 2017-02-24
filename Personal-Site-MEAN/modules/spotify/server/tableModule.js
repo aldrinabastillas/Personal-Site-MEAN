@@ -1,5 +1,8 @@
 ﻿var MongoClient = require("mongodb").MongoClient;
 
+/**
+ * Connects to song database on MongoDB server hosted in Azure
+ */
 function connectToDb() {
     return new Promise(function (resolve, reject) {
         var url = 'mongodb://spotify-songs:RRhiwUoDSLQxmw3kzLVcA3whGfrfTo8ix9XR6v5Bc0tpcVd7NcdAPaGi4EyYMZCIORQqP585oEsr3ApU1YiyPw==@spotify-songs.documents.azure.com:10250/songs?ssl=true';
@@ -15,6 +18,9 @@ function connectToDb() {
     });
 }
 
+/**
+ * Given a year, returns the Billboard Hot 100 songs for that year, sorted by chart position
+*/
 exports.getYearList = function (year) {
     return new Promise(function (resolve, reject) {
         connectToDb().then(function (db) {

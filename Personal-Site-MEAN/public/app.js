@@ -9,6 +9,7 @@
 
     /* Routes */
     app.config(function ($routeProvider) {
+        //for ng-view on public/index.html
         $routeProvider
             .when('/', {
                 templateUrl: '/modules/home/client/index.html'

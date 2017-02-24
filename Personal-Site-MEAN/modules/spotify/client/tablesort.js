@@ -2,6 +2,9 @@
   A simple, lightweight jQuery plugin for creating sortable tables.
   https://github.com/kylefox/jquery-tablesort
   Version 0.0.1
+
+  Used for /module/spotify/client/templates/tableColumn.html
+  Called by /module/spotify/directives/spotify-directives.js
 */
 
 ;(function($) {

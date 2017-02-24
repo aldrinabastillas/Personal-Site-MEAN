@@ -148,7 +148,7 @@ a {
     padding: 100px 0;
     text-align: center;
     color: white;
-    background: url(/modules/home/client/content/images/alaska.jpg);
+    background: url(/home/content/images/alaska.jpg);
     background-color: black;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -232,11 +232,11 @@ a {
 }
 
 #visualizerGif{
-    background: url(/modules/home/client/content/images/visualizer.gif) no-repeat center;
+    background: url(/home/content/images/visualizer.gif) no-repeat center;
 }
 
 #billboardImage{
-     background: url(/modules/home/client/content/images/billboard.jpg) no-repeat center;
+     background: url(/home/content/images/billboard.jpg) no-repeat center;
 }
 
 .projectThumb {
@@ -312,7 +312,7 @@ a {
     width: 100%;
     padding: 50px 0;
     color: white;
-    background: url(/modules/home/client/content/images/madison.jpg);
+    background: url(/home/content/images/madison.jpg);
     background-color: black;
     -webkit-background-size: cover;
     -moz-background-size: cover;
