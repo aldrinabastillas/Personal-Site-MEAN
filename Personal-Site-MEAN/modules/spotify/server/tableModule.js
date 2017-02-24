@@ -1,11 +1,12 @@
 ﻿var MongoClient = require("mongodb").MongoClient;
+var keys = require('./privateKeys');
 
 /**
  * Connects to song database on MongoDB server hosted in Azure
  */
 function connectToDb() {
     return new Promise(function (resolve, reject) {
-        var url = 'mongodb://spotify-songs:RRhiwUoDSLQxmw3kzLVcA3whGfrfTo8ix9XR6v5Bc0tpcVd7NcdAPaGi4EyYMZCIORQqP585oEsr3ApU1YiyPw==@spotify-songs.documents.azure.com:10250/songs?ssl=true';
+        var url = keys.mongo_server + 'songs?ssl=true';
         MongoClient.connect(url, function (err, db) {
             if (err == null) {
                 //console.log('Connected to db: ' + db.databaseName);

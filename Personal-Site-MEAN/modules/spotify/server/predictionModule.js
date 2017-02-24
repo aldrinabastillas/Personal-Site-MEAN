@@ -1,6 +1,7 @@
 ﻿/* Private Properties */
 var express = require('express');
 var spotify = require('./spotifyApiModule');
+var keys = require('./privateKeys');
 var request = require('request');
 var app = express();
 
@@ -41,8 +42,8 @@ exports.getPrediction = function (songId) {
 function callMLService(audioFeatures, date) {
     return new Promise(function (resolve, reject) {
         var input = formatInput(audioFeatures, date);
-        var endpoint = 'https://ussouthcentral.services.azureml.net/workspaces/90569c39ed404120800dca5909257988/services/4f74fa834a8e479d8d8795a21eeb3b74/execute?api-version=2.0&format=swagger';
-        var apiKey = 'MwC/RyyU/RenwU9X6l1IIoBGQer/MdTz0Y7iDGDBwsM461ig1PtxPX7DlJGEzFqcAfabdC/HUSpHXOR+uczY7g==';
+        var endpoint = keys.microsoft_endpoint;
+        var apiKey = keys.microsoft_apiKey;
         var postBody = {
             url: endpoint,
             headers: {

@@ -1,6 +1,7 @@
 ﻿(function () {
     /* Private Properties */
     var request = require('request');
+    var keys = require('./privateKeys');
 
     /* Public Methods */
     /** Given a song selected from the dropdown in /modules/spotify/client/templates/predictionColumn.html
@@ -86,8 +87,8 @@
         // Gets an access token for Spotify's Web APIs
         // See https://developer.spotify.com/web-api/authorization-guide/#client-credentials-flow
         return new Promise(function (resolve, reject) {
-            var client_id = '3af0f886f6e1419e824f334d91f4b8ff';
-            var client_secret = 'c44eb13f52ec433fafc69e05fb3581bb';
+            var client_id = keys.spotify_client_id;
+            var client_secret = keys.spotify_client_secret;
             var authOptions = {
                 url: 'https://accounts.spotify.com/api/token',
                 headers: {

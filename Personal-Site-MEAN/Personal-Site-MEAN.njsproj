@@ -31,6 +31,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="modules\spotify\server\privateKeys.js" />
     <Compile Include="modules\home\client\menuBar.js" />
     <Compile Include="modules\home\client\directives\home-directives.js" />
     <Compile Include="modules\spotify\client\controllers\predictionController.js" />
