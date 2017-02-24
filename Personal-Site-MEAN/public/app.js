@@ -8,7 +8,7 @@
     }]);
 
     /* Routes */
-    app.config(function ($routeProvider) {
+    app.config(function ($routeProvider, $locationProvider) {
         //for ng-view on public/index.html
         $routeProvider
             .when('/', {
@@ -17,6 +17,10 @@
             .when('/Spotify', {
                 templateUrl: '/modules/spotify/client/index.html',
             });
+
+
+        //remove !# from route
+        //$locationProvider.html5Mode(true); //breaks when refreshing page
     });
 
 

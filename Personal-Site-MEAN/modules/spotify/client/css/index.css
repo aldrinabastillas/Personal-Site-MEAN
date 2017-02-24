@@ -35,6 +35,7 @@ footer h4 {
 }
 /*#endregion*/
 
+
 /*#region Overrides*/
 .ui.icon.input, .results {
     min-width: 100%;
@@ -44,7 +45,13 @@ footer h4 {
 .ui.sortable.table thead th {
     color: #42DCA3;
 }
+
+#accordion .panel-title:hover, 
+#accordion .panel-title:focus{
+    cursor: pointer;
+}
 /*#endregion*/
+
 
 /*#region Layout & Text*/
 #subpageNavbar .container {
