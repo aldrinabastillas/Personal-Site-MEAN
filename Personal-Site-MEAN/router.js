@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var predictions = require('./modules/spotify/server/predictionModule');
 var table = require('./modules/spotify/server/tableModule');
+var setlist = require('./modules/recap/server/setlistModule'); 
 
 /* Routes */
 var router = express.Router();
@@ -15,6 +16,7 @@ router.use('/', express.static(__dirname));
 router.use('/vendor', express.static(__dirname + '/node_modules/'));
 router.use('/home', express.static(__dirname + '/modules/home/client'));
 router.use('/spotify', express.static(__dirname + '/modules/spotify/client/'));
+router.use('/recap', express.static(__dirname + '/modules/recap/client/'));
 
 //download resume link on /module/home/client/templates/contact.html
 router.get('/resume', (req, res) => {
@@ -45,6 +47,18 @@ router.get('/getYearList:year', (req, res) => {
         table.getYearList(year).then(function (result) {
             res.json(result);
         }).catch(function (reason) {
+            res.status(500).json(reason);
+        });
+    }
+});
+
+//called from /module/recap/client/module/setlistSearch.html
+router.get('/getSetlists:artist', (req, res) => {
+    var artist = req.params.artist;
+    if (artist) {
+        setlist.getSetlists(artist).then(function (result) {
+            res.json(result);
+        }).catch(function (resason) {
             res.status(500).json(reason);
         });
     }

@@ -353,6 +353,8 @@ a {
 /*#region Footer*/
 footer {
     padding: 50px 0;
+    background-color:black;
+    color: white;
 }
 
     footer p {

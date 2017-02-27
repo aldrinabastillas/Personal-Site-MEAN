@@ -42,12 +42,10 @@ exports.getPrediction = function (songId) {
 function callMLService(audioFeatures, date) {
     return new Promise(function (resolve, reject) {
         var input = formatInput(audioFeatures, date);
-        var endpoint = keys.microsoft_endpoint;
-        var apiKey = keys.microsoft_apiKey;
         var postBody = {
-            url: endpoint,
+            url: keys.microsoft_endpoint,
             headers: {
-                'Authorization': 'Bearer ' + apiKey
+                'Authorization': 'Bearer ' + keys.microsoft_apiKey
             },
             body: input,
             json: true

@@ -31,6 +31,11 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="modules\recap\client\controllers\recapController.js" />
+    <Compile Include="modules\recap\client\controllers\setlistController.js" />
+    <Compile Include="modules\recap\client\directives\recap-directives.js" />
+    <Compile Include="modules\recap\server\privateKeys.js" />
+    <Compile Include="modules\recap\server\setlistModule.js" />
     <Compile Include="modules\spotify\server\privateKeys.js" />
     <Compile Include="modules\home\client\menuBar.js" />
     <Compile Include="modules\home\client\directives\home-directives.js" />
@@ -48,6 +53,10 @@
     <None Include="aldrinabastillas - Web Deploy.pubxml" />
     <Content Include="modules\home\client\css\home.css" />
     <Content Include="modules\home\client\index.html" />
+    <Content Include="modules\recap\client\css\index.css" />
+    <Content Include="modules\recap\client\index.html" />
+    <Content Include="modules\recap\client\templates\setlistSearch.html" />
+    <Content Include="modules\recap\client\templates\subpageNavBar.html" />
     <Content Include="modules\spotify\client\css\index.css" />
     <Content Include="modules\spotify\client\index.html" />
     <Content Include="modules\home\client\content\documents\Aldrin F Abastillas - Resume 2017.docx" />
@@ -82,6 +91,13 @@
   <ItemGroup>
     <Folder Include="bin\" />
     <Folder Include="modules\home\" />
+    <Folder Include="modules\recap\" />
+    <Folder Include="modules\recap\client\" />
+    <Folder Include="modules\recap\client\directives\" />
+    <Folder Include="modules\recap\client\controllers\" />
+    <Folder Include="modules\recap\client\css\" />
+    <Folder Include="modules\recap\client\templates\" />
+    <Folder Include="modules\recap\server\" />
     <Folder Include="modules\spotify\client\css\" />
     <Folder Include="modules\home\client\content\documents\" />
     <Folder Include="modules\home\client\content\images\" />

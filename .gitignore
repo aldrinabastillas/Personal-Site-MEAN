@@ -245,3 +245,4 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 Personal-Site-MEAN/modules/spotify/server/privateKeys.js
+Personal-Site-MEAN/modules/recap/server/privateKeys.js

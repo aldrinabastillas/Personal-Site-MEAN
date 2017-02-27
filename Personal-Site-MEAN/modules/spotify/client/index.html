@@ -1,5 +1,5 @@
 ﻿<meta name="viewport" content="width=device-width" />
-<meta name="description" content="Predict if a song would be on the Billboard Hot 100 list, using Micros" />
+<meta name="description" content="Predict if a song would be on the Billboard Hot 100 list, using Microsoft Machine Learning Studio" />
 <title>Billboard Top 100 Predictor</title>
 
 <!-- CSS -->
@@ -8,16 +8,14 @@
 
 <subpage-nav-bar></subpage-nav-bar>
 <div ng-app="spotifyApp" class="spotifyApp container-fluid">
-    <div>
-        <!--Row 1 -->
-        <div class="row">
-            <player-column></player-column>
-            <prediction-column></prediction-column>
-            <table-column></table-column>
-        </div>
-        <br />
-
-        <!-- Row 2 -->
-        <description-panels></description-panels>
+    <!--Row 1 -->
+    <div class="row">
+        <player-column></player-column>
+        <prediction-column></prediction-column>
+        <table-column></table-column>
     </div>
+    <br />
+
+    <!-- Row 2 -->
+    <description-panels></description-panels>
 </div>

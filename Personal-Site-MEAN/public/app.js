@@ -1,6 +1,6 @@
 ﻿(function () {
     /* Module */
-    var app = angular.module('mainApp', ['ngRoute', 'home-directives', 'spotifyApp']);
+    var app = angular.module('mainApp', ['ngRoute', 'home-directives', 'spotifyApp', 'recapApp']);
 
     /* Controller */
     app.controller('MainController', ['$scope', function ($scope) {
@@ -16,6 +16,9 @@
             })
             .when('/Spotify', {
                 templateUrl: '/modules/spotify/client/index.html',
+            })
+            .when('/Recap', {
+                templateUrl: '/modules/recap/client/index.html',
             });
 
 
