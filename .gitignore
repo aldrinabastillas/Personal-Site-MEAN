@@ -246,3 +246,4 @@ ModelManifest.xml
 .fake/
 Personal-Site-MEAN/modules/spotify/server/privateKeys.js
 Personal-Site-MEAN/modules/recap/server/privateKeys.js
+Personal-Site-MEAN/modules/shared/server/privateKeys.js

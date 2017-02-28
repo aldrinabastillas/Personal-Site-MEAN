@@ -3,8 +3,13 @@ body {
     background-color: black;
 }
 
-a, a:hover {
+a, a:hover,
+.ui.list > .item .header{
     color: #42DCA3;
+}
+
+.ui.list > .item .description {
+    color: white;
 }
 
 .recapApp {
@@ -14,8 +19,8 @@ a, a:hover {
 }
 /*#endregion Colors*/
 
-/*#region Overrides*/
+/*#region Layout*/
 .ui.icon.input, .results {
     min-width: 100%;
 }
-/*#endregion Overrides*/
+/*#endregion Layout*/

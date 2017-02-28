@@ -7,4 +7,35 @@
         </div>
         <div class="results"></div>
     </div>
+
+    <table class="ui inverted selectable striped celled unstackable compact table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Venue</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="setlist in setlists" ng-click="getSetlistSongs(setlist.id)">
+                <td>{{setlist.date | date : 'mediumDate'}}</td>
+                <td>{{setlist.venue}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="ui ordered list">
+        <div class="item" ng-repeat="song in songs">
+            <!-- TODO: Add song preview -->
+            <img class="ui avatar image" src="{{song.image}}" />
+            <div class="content">
+                <div class="header">
+                    {{song.name}}
+                </div>
+                <div class="description">
+                    by {{song.artist}} on {{song.album}}
+                </div>
+            </div>  
+        </div>
+    </div>
+
 </div>

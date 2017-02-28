@@ -50,18 +50,38 @@ router.get('/getYearList:year', (req, res) => {
             res.status(500).json(reason);
         });
     }
+    else {
+        res.status(500).json('Could not find selected list');
+    }
 });
 
 //called from /module/recap/client/module/setlistSearch.html
-router.get('/getSetlists:artist', (req, res) => {
+router.get('/getSetlists/:artist', (req, res) => {
     var artist = req.params.artist;
     if (artist) {
         setlist.getSetlists(artist).then(function (result) {
             res.json(result);
-        }).catch(function (resason) {
+        }).catch(function (reason) {
             res.status(500).json(reason);
         });
     }
+});
+
+//called from /module/recap/client/module/setlistSearch.html
+router.get('/getSetlistSongs/:setlistId', (req, res) => {
+    var setlistId = req.params.setlistId;
+    if (setlistId) {
+        setlist.getSetlistSongs(setlistId).then(function (result) {
+            res.json(result);
+        }).catch(function (reason) {
+            res.status(500).json(reason);
+        });
+    }
+    else {
+        res.status(500).json('Could not find selected setlist');
+    }
+
+    
 });
 
 /* Export */

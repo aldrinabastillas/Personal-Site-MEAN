@@ -10,7 +10,7 @@
         $scope.getYearList = function (selectedYear) {
             //first check local cache
             if ($scope.billboardListCache[selectedYear] !== undefined) {
-                $scope.billboardSongs = spotify.billboardListCache[selectedYear];
+                $scope.billboardSongs = $scope.billboardListCache[selectedYear];
             }
             else {
                 $http.get('/getYearList' + selectedYear)
