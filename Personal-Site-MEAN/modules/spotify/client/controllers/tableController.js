@@ -38,10 +38,11 @@
             for (i = mostRecentList; i >= 1946; i--) {
                 $scope.availableYears.push(i);
             }
-            $scope.selectedYear = $scope.availableYears[0]; //default in the most recent year
-            $scope.getYearList($scope.selectedYear);
-        } (); //invoke upon page load
-        // the returned table rows aren't binding when called from link function in the table directive
+            $scope.selectedYear = mostRecentList; //default in the most recent year
+        }();
+
+        $scope.getYearList($scope.selectedYear); //invoke upon page load, the returned table rows 
+        //aren't binding when called from link function in the table directive
     }]);
     
 

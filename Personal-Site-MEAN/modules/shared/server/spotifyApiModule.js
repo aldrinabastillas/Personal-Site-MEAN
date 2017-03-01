@@ -2,6 +2,9 @@
     /* Private Properties */
     var request = require('request');
     var keys = require('./privateKeys');
+    var app = require('express')();
+    var cookieParser = require('cookie-parser');
+    app.use(cookieParser());
 
     /* Public Methods */
     /** Given a song selected from the dropdown in /modules/spotify/client/templates/predictionColumn.html
@@ -55,7 +58,7 @@
                         album: tempSong.album['name'],
                         artist: tempSong.artists[0]['name'],
                     };
-                    console.log(info);
+                    //console.log(info);
                     resolve(info);
                 }
                 else {
@@ -100,15 +103,19 @@
     function getAlbumReleaseDate(albumId) {
         return new Promise(function (resolve, reject) {
             var endpoint = 'https://api.spotify.com/v1/albums/' + albumId;
-            sendSpotifyQuery(endpoint).then(function (result) {
-                var date = result.release_date;
-                if (date) {
-                    resolve(date);
-                }
-                else {
-                    reject(-1);
-                }
-            });
+            sendSpotifyQuery(endpoint)
+                .then(function (result) {
+                    var date = result.release_date;
+                    if (date) {
+                        resolve(date);
+                    }
+                    else {
+                        reject(0);
+                    }
+                })
+                .catch(function (err) {
+                    reject(err);
+                });
         });
     };
 
@@ -154,5 +161,61 @@
             });
         });
     };
-})();
+    //function sendSpotifyQuery(endpoint) {
+    //    return new Promise(function (resolve, reject) {
+    //        var accessToken = res.cookie.spotifyApiModuleToken;
+    //        if (!accessToken) {
+    //            getAccessToken().then(function (result) {
+    //                accessToken = result;
+    //            });
+    //        }
+
+    //        //Sends request to a given endpoint with the access token 
+    //        var options = {
+    //            url: endpoint,
+    //            headers: {
+    //                'Authorization': 'Bearer ' + accessToken
+    //            },
+    //            json: true
+    //        };
+    //        request.get(options, function (error, response, body) {
+    //            resolve(body);
+    //        }).catch(function (err){
+    //            reject(err);
+    //        });
+    //    });
+    //};
+
+    //function getAccessToken() {
+    //    // Gets an access token for Spotify's Web APIs
+    //    // See https://developer.spotify.com/web-api/authorization-guide/#client-credentials-flow
+    //    return new Promise(function (resolve, reject) {
+    //        var client_id = keys.spotify_client_id;
+    //        var client_secret = keys.spotify_client_secret;
+    //        var authOptions = {
+    //            url: 'https://accounts.spotify.com/api/token',
+    //            headers: {
+    //                'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64'))
+    //            },
+    //            form: {
+    //                grant_type: 'client_credentials'
+    //            },
+    //            json: true
+    //        };
+
+    //        request.post(authOptions, function (error, response, body) {
+    //            if (!error && response.statusCode === 200) {
+    //                var access_token = body.access_token;
+    //                res.cookie('spotifyApiModuleToken', access_token);
+    //                resolve(access_token);
+    //            }
+    //            else {
+    //                reject(error);
+    //            }
+    //        });
+    //    });
+    //}; //end getAccessToken
+
+
+})(); //end closure
 

@@ -17,10 +17,15 @@ a, a:hover,
     color: white;
     margin-top: 60px;
 }
-/*#endregion Colors*/
+/*#endregion*/
 
-/*#region Layout*/
+/*#region General Styles*/
 .ui.icon.input, .results {
     min-width: 100%;
 }
-/*#endregion Layout*/
+
+.content .header:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+/*#endregion*/

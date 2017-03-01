@@ -36,6 +36,7 @@
     <Compile Include="modules\recap\client\directives\recap-directives.js" />
     <Compile Include="modules\recap\server\privateKeys.js" />
     <Compile Include="modules\recap\server\setlistModule.js" />
+    <Compile Include="modules\recap\server\spotifyLoginModule.js" />
     <Compile Include="modules\shared\server\privateKeys.js" />
     <Compile Include="modules\spotify\server\privateKeys.js" />
     <Compile Include="modules\home\client\menuBar.js" />
@@ -45,7 +46,6 @@
     <Compile Include="modules\spotify\client\controllers\tableController.js" />
     <Compile Include="modules\spotify\client\tablesort.js" />
     <Compile Include="modules\spotify\client\directives\spotify-directives.js" />
-    <Compile Include="modules\spotify\server\spotifyApiModule.js" />
     <Compile Include="modules\spotify\server\tableModule.js" />
     <Compile Include="modules\shared\server\spotifyApiModule.js" />
     <Compile Include="modules\spotify\server\predictionModule.js" />
@@ -58,6 +58,7 @@
     <Content Include="modules\recap\client\css\index.css" />
     <Content Include="modules\recap\client\index.html" />
     <Content Include="modules\recap\client\templates\setlistSearch.html" />
+    <Content Include="modules\recap\client\templates\spotifyLogin.html" />
     <Content Include="modules\recap\client\templates\subpageNavBar.html" />
     <Content Include="modules\shared\client\subpageNavBar.html" />
     <Content Include="modules\spotify\client\css\index.css" />
@@ -119,6 +120,7 @@
     <Folder Include="modules\spotify\client\templates\" />
     <Folder Include="modules\spotify\client\directives\" />
     <Folder Include="modules\spotify\server\" />
+    <Folder Include="typings\globals\handlebars\" />
     <Folder Include="typings\globals\jquery\" />
     <Folder Include="typings\modules\" />
     <Folder Include="typings\modules\angular\" />
@@ -133,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\handlebars\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jquery\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\semantic-ui\index.d.ts" />
