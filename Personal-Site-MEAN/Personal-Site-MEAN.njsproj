@@ -37,6 +37,7 @@
     <Compile Include="modules\recap\client\controllers\setlistController.js" />
     <Compile Include="modules\recap\client\directives\recap-directives.js" />
     <Compile Include="modules\recap\server\privateKeys.js" />
+    <Compile Include="modules\recap\router.js" />
     <Compile Include="modules\recap\server\setlistModule.js" />
     <Compile Include="modules\recap\server\spotifyLoginModule.js" />
     <Compile Include="modules\shared\server\privateKeys.js" />

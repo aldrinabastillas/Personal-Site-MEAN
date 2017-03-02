@@ -5,7 +5,7 @@
     app.controller('LoggedInController', ['$scope', '$http', '$window', '$sce', function ($scope, $http, $window, $sce) {
         $scope.onload = function () {
             var playlist = sessionStorage.user;
-            $http.post('/savePlaylist', playlist).then(function (response) {
+            $http.post('/recap/savePlaylist', playlist).then(function (response) {
                 $scope.playlistUrl = $sce.trustAsResourceUrl(response.data);
             }).catch(function (err) {
                 $scope.error = err;

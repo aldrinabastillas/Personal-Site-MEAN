@@ -11,7 +11,7 @@
              * @param {string} artist
              */
             $scope.getSetlists = function (artist) {
-                $http.get('/getSetlists/' + artist).then(function (response) {
+                $http.get('/recap/getSetlists/' + artist).then(function (response) {
                     var setlistArr = [];
                     $.each(response.data, function (index, item) {
                         setlistArr.push({
@@ -39,7 +39,7 @@
                     artist: $scope.selectedArtist
                 };
 
-                $http.post('/getSetlistSongs', sets).then(function (response) {
+                $http.post('/recap/getSetlistSongs', sets).then(function (response) {
                     var title = $scope.selectedArtist + ' @ ' + setlist.venue;
                     $scope.playlist = {
                         title: title,
@@ -72,7 +72,7 @@
              */
             $scope.loginPopup = function () {
                 sessionStorage.user = JSON.stringify($scope.playlist);
-                var popup = $window.open('/modules/recap/client/templates/spotifyLogin.html',
+                var popup = $window.open('/recap/templates/spotifyLogin.html',
                     'Login to Spotify', 'width=700,height=500,left=100,top=100');
             };
 
@@ -82,7 +82,7 @@
              */
             $scope.savePlaylist = function () {
                 var playlist = JSON.stringify($scope.playlist);
-                $http.post('/savePlaylist', playlist).then(function (response) {
+                $http.post('/recap/savePlaylist', playlist).then(function (response) {
                     $scope.playlistUrl = $sce.trustAsResourceUrl(response.data);
                 }).catch(function (err) {
                     console.log(err);
