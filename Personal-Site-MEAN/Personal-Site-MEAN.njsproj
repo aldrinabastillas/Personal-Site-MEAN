@@ -31,6 +31,8 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="modules\recap\client\controllers\loggedInController.js" />
+    <Compile Include="modules\recap\client\controllers\loginController.js" />
     <Compile Include="modules\recap\client\controllers\recapController.js" />
     <Compile Include="modules\recap\client\controllers\setlistController.js" />
     <Compile Include="modules\recap\client\directives\recap-directives.js" />
@@ -57,6 +59,7 @@
     <Content Include="modules\home\client\index.html" />
     <Content Include="modules\recap\client\css\index.css" />
     <Content Include="modules\recap\client\index.html" />
+    <Content Include="modules\recap\client\templates\loginCompleted.html" />
     <Content Include="modules\recap\client\templates\setlistSearch.html" />
     <Content Include="modules\recap\client\templates\spotifyLogin.html" />
     <Content Include="modules\recap\client\templates\subpageNavBar.html" />

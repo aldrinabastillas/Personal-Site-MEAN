@@ -1,4 +1,4 @@
-﻿/* Private Properties */
+﻿/* Modules */
 var express = require('express');
 var keys = require('./privateKeys');
 var request = require('request');
@@ -6,6 +6,10 @@ var spotify = require('../../shared/server/spotifyApiModule');
 var app = express();
 
 /* Public Methods */
+/**
+ * Given an artist name, search for their most recent setlists
+ * @param {string} artist
+ */
 exports.getSetlists = function (artist) {
     return new Promise(function (resolve, reject) {
         getArtistId(artist).then(function (artistId) {
@@ -28,46 +32,45 @@ exports.getSetlists = function (artist) {
     });
 }
 
-exports.getSetlistSongs = function (setlistId) {
+/**
+ * Given set(s) of songs, get each songs' info from Spotify
+ * @param sets - contains a set object, or an array of sets
+ */
+exports.getSetlistSongs = function (sets) {
     return new Promise(function (resolve, reject) {
-        //get list of songs for the specified setlistId
-        getSongNames(setlistId).then(function (songs) {
-            //call getSongInfo on all songs
-            var tasks = songs.map(getSongInfo);
-            var setlist = Promise.all(tasks)
-                .then(function (response) {
-                    resolve(response);
-                })
-                .catch(function (error) {
-                    reject(error);
-                });
+        var songs = parseSets(sets.sets, sets.artist);
+
+        //call getSongInfo on all songs
+        var tasks = songs.map(getSongInfo);
+        var setlist = Promise.all(tasks).then(function (response) {
+            resolve(response);
         }).catch(function (error) {
             reject(error);
         });
     }); //end promise
 };
 
+
 /* Private Methods*/
 /**
- * TODO
- * @param song
+ * Given a song title and artist, get details from Spotify
+ * like Spotify ID, preview, album art, etc.
+ * @param song - Object returned by parseSingleSet 
  */
 function getSongInfo(song) {
     return new Promise(function (resolve, reject) {
-        spotify.getSong(song.name, song.artist)
-            .then(function (response) {
-                resolve(response);
-            })
-            .catch(function (error) {
-                //if not found in spotify, just push the song and artist name
-                resolve(song);
-            });
+        spotify.getSong(song.name, song.artist).then(function (response) {
+            resolve(response);
+        }).catch(function (error) {
+            //if not found in spotify, just return the song and artist name
+            resolve(song);
+        });
     });
 }
 
 /**
  * See http://api.setlist.fm/docs/rest.0.1.search.artists.html
- * @param artist
+ * @param {string} artist - free text
  */
 function getArtistId(artist) {
     return new Promise(function (resolve, reject) {
@@ -90,9 +93,12 @@ function getArtistId(artist) {
     });
 }
 
+/**
+ * Given a setlistId, return all the songs. Not currently used
+ * @param setlistId - A setlist id from setlist.fm
+ */
 function getSongNames(setlistId) {
     return new Promise(function (resolve, reject) {
-        //example setlistId = 5bf9a7a8
         var url = 'http://api.setlist.fm/rest/0.1/setlist/' + setlistId + '.json';
 
         request.get(url, function (error, response, body) {
@@ -109,9 +115,16 @@ function getSongNames(setlistId) {
     });
 }
 
-function parseSets(sets, artist) {
+/**
+ * Given a sets object, which may have one set object, or an array of sets
+ * return a single array of songs
+ * @param sets
+ * @param {string} artist
+ */
+function parseSets(sets, artist, res, req) {
+    var sets = JSON.parse(sets);
     var songs = [];
-    if (sets.length > 0) { //if there is an array of multiple sets
+    if (sets.set.length > 0) { //if there is an array of multiple sets
         sets.forEach(function (set) {
             songs = songs.concat(parseSingleSet(set, artist));
         });
@@ -122,7 +135,14 @@ function parseSets(sets, artist) {
     return songs;
 }
 
-function parseSingleSet(set, artist) {
+/**
+ * Given a set of songs, return an array of objects that just has
+ * the song name and artist. If the song is not a cover, use the
+ * provided artist
+ * @param set -
+ * @param {string} artist
+ */
+function parseSingleSet(set, artist, res, req) {
     var songs = [];
     if (set.song.length > 0) {
         set.song.forEach(function (song) {

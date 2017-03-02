@@ -1,90 +1,61 @@
 ﻿(function () {
+    'use strict';
     var app = angular.module('setlistApp', []);
 
-    app.controller('SetlistController', ['$scope', '$http', '$window',
-        function ($scope, $http, $window) {
+    app.controller('SetlistController', ['$rootScope', '$scope', '$http', '$window', '$sce',
+        function ($rootScope, $scope, $http, $window, $sce) {
 
-            /* Free-text search for an artist in Spotify */
-            $scope.artistSearch = $('#artistSearch').search({
-                apiSettings: {
-                    url: 'https://api.spotify.com/v1/search?q={query}&type=artist',
-                    onResponse: function (spotifyResponse) {
-                        var response = {
-                            results: []
-                        };
-
-                        //iterate through results from Spotify
-                        //See https://developer.spotify.com/web-api/search-item/ for structure
-                        $.each(spotifyResponse.artists.items, function (i, artist) {
-                            response.results.push({
-                                title: artist.name,
-                                image: (artist.images.length == 3) ? artist.images[0].url : "", //pick smallest image
-                                id: artist.id
-                            });
-                        });
-                        return response;
-                    }
-                },
-                fields: { //map results from Spotify to Semantic-UI API
-                    results: 'results',
-                    title: 'title',
-                    image: 'image'
-                },
-                minCharacters: 3,
-                onSelect: function (result, response) {
-                    var artist = result.title
-                    $scope.selectedArtist = artist;
-                    $scope.getSetlists(artist);
-                }
-            }); //end artistSearch
-
-
-            /* Given an artist, display setlists*/
+            /**
+             *Given an artist, display setlists
+             * Called by link function in recap-directives.js
+             * @param {string} artist
+             */
             $scope.getSetlists = function (artist) {
-                $http.get('/getSetlists/' + artist)
-                    .then(function (response) {
-                        var setlistArr = [];
-                        $.each(response.data, function (index, item) {
-                            var date = parseDate(item['@eventDate']);
-                            var venue = item['venue']['@name'] + ', ' + item['venue']['city']['@name'];
-                            //var songs = (item['sets'] != "") ? item['sets']['set']['song'].length : 0;
-                            setlistArr.push({
-                                date: date,
-                                venue: venue,
-                                id: item['@id'],
-                                //songs: songs
-                            });
+                $http.get('/getSetlists/' + artist).then(function (response) {
+                    var setlistArr = [];
+                    $.each(response.data, function (index, item) {
+                        setlistArr.push({
+                            date: parseDate(item['@eventDate']),
+                            venue: item['venue']['@name'] + ', ' + item['venue']['city']['@name'],
+                            id: item['@id'],
+                            sets: item['sets']
                         });
-
-                        $scope.setlists = setlistArr;
-                    }).catch(function (e) {
-                        $scope.error = true;
                     });
+                    $scope.selectedArtist = artist;
+                    $scope.setlists = setlistArr;
+                }).catch(function (e) {
+                    $scope.error = true;
+                });
             }; //end getSetlists
 
-            /* Parse dates from Setlist.fm into JS format*/
-            function parseDate(dateString) {
-                var split = dateString.split('-'); //dates from setlist.fm are 'DD-MM-YYY'
-                //which is incompatible with JS and Angular
 
-                return new Date(split[2], split[1] - 1, split[0]); //year, month (0-11), date
-            }; //end parseDate
-
-            /*Given a setlist, get the songs info from Spotify*/
+            /**
+             * Given a setlist, get the songs info from Spotify
+             * @param setlist
+             */
             $scope.getSetlistSongs = function (setlist) {
-                $http.get('/getSetlistSongs/' + setlist.id)
-                    .then(function (response) {
-                        var title = $scope.selectedArtist + ' @ ' + setlist.venue;
-                        $scope.playlist = {
-                            title: title,
-                            songs: response.data,
-                        };
-                    }).catch(function (e) {
-                        //TODO:
-                        $scope.error = true;
-                    });
+                var sets = {
+                    sets: JSON.stringify(setlist.sets),
+                    artist: $scope.selectedArtist
+                };
+
+                $http.post('/getSetlistSongs', sets).then(function (response) {
+                    var title = $scope.selectedArtist + ' @ ' + setlist.venue;
+                    $scope.playlist = {
+                        title: title,
+                        songs: response.data,
+                    };
+                }).catch(function (err) {
+                    //TODO:
+                    $scope.error = true;
+                });
             }; //end getSetlistSongs
 
+
+            /**
+             * Plays a preview of a song
+             * @param {string} songId
+             */
             $scope.playPreview = function (songId) {
                 var preview = $('#' + songId).get(0);
                 if (preview.paused) {
@@ -95,21 +66,42 @@
                 }
             }; //end playPreview
 
-            $scope.savePlaylist = function () {
-                var playlist = JSON.stringify($scope.playlist);
-                $http.post('/savePlaylist', playlist)
-                    .then(function (response) {
-                        console.log(response);
-                    }).catch(function (e) {
-                        console.log(e);
-                    });
+
+            /**
+             * Opens a new window to do authentication
+             */
+            $scope.loginPopup = function () {
+                sessionStorage.user = JSON.stringify($scope.playlist);
+                var popup = $window.open('/modules/recap/client/templates/spotifyLogin.html',
+                    'Login to Spotify', 'width=700,height=500,left=100,top=100');
             };
 
-            $scope.loginPopup = function () {
-                $window.open('/modules/recap/client/templates/spotifyLogin.html',
-                    'name', 'width=200,height=200');
-                $http.get('/spotifyLogin');
+            /**
+             * Sends list of songs to server, creates a Spotify
+             * playlist, then returns its URL
+             */
+            $scope.savePlaylist = function () {
+                var playlist = JSON.stringify($scope.playlist);
+                $http.post('/savePlaylist', playlist).then(function (response) {
+                    $scope.playlistUrl = $sce.trustAsResourceUrl(response.data);
+                }).catch(function (err) {
+                    console.log(err);
+                });
             };
 
         }]); //end controller
+
+    /* Private Methods */
+    /**
+     * Parse dates from Setlist.fm into JS format
+     * @param dateString
+     */
+    function parseDate(dateString) {
+        var split = dateString.split('-'); //dates from setlist.fm are 'DD-MM-YYY'
+        //which is incompatible with JS and Angular
+
+        return new Date(split[2], split[1] - 1, split[0]); //year, month (0-11), date
+    }; //end parseDate
+
+
 })(); //end closure

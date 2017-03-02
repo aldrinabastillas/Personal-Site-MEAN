@@ -1,4 +1,5 @@
-﻿<div ng-controller="SetlistController">
+﻿<div  ng-controller="SetlistController" >
+    <!-- Step 1: Search for an Artist -->
     <div ng-hide="setlists" id="artistSearch" class="ui search">
         <div class="ui icon input">
             <input class="prompt" type="text"
@@ -8,16 +9,20 @@
         <div class="results"></div>
     </div>
 
-    <div ng-show="playlist" class="ui ordered list">
-        <a href="/spotifyLogin" id="login-button" class="btn btn-primary">
-            Log in with Spotify
-        </a>
-        <!--<div id="login-button" class="btn btn-primary"
-           target="popup" ng-click="loginPopup()">
-            Log in with Spotify
-        </div>-->
-        <div ng-click="savePlaylist()" id="save-button" class="btn btn-primary">
-            Save Playlist
+    <!-- Step 2: Display and Select a show -->
+    <div ng-hide="playlist" ng-show="setlists" class="ui ordered list">
+        <div class="item" ng-repeat="setlist in setlists" ng-click="getSetlistSongs(setlist)">
+            <div class="content">
+                <div class="header">{{setlist.venue}}</div>
+                <div class="description">{{setlist.date | date : 'mediumDate'}}</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3: Display and Save songs -->
+    <div ng-show="playlist&&!playlistUrl" class="ui ordered list">
+        <div class="btn btn-success" target="popup" ng-click="loginPopup()">
+            Log in and save
         </div>
         <div class="item" ng-repeat="song in playlist.songs">
             <img class="ui avatar image" src="{{song.image}}">
@@ -34,14 +39,4 @@
             </div>
         </div>
     </div>
-
-    <div ng-hide="playlist" ng-show="setlists" class="ui ordered list">
-        <div class="item" ng-repeat="setlist in setlists" ng-click="getSetlistSongs(setlist)">
-            <div class="content">
-                <div class="header">{{setlist.venue}}</div>
-                <div class="description">{{setlist.date | date : 'mediumDate'}}</div>
-            </div>
-        </div>
-    </div>
-
 </div>
