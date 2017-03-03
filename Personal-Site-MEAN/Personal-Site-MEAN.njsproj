@@ -31,16 +31,19 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="modules\recap\client\controllers\loggedInController.js" />
+    <Compile Include="modules\recap\client\controllers\instagramLoggedIn.js" />
+    <Compile Include="modules\recap\client\controllers\spotifyLoggedIn.js" />
     <Compile Include="modules\recap\client\controllers\loginController.js" />
     <Compile Include="modules\recap\client\controllers\recapController.js" />
     <Compile Include="modules\recap\client\controllers\setlistController.js" />
     <Compile Include="modules\recap\client\directives\recap-directives.js" />
+    <Compile Include="modules\recap\server\instagramModule.js" />
     <Compile Include="modules\recap\server\privateKeys.js" />
     <Compile Include="modules\recap\router.js" />
     <Compile Include="modules\recap\server\setlistModule.js" />
-    <Compile Include="modules\recap\server\spotifyLoginModule.js" />
+    <Compile Include="modules\recap\server\spotifyPlaylistModule.js" />
     <Compile Include="modules\shared\server\privateKeys.js" />
+    <Compile Include="modules\shared\server\spotifyQueryModule.js" />
     <Compile Include="modules\spotify\server\privateKeys.js" />
     <Compile Include="modules\home\client\menuBar.js" />
     <Compile Include="modules\home\client\directives\home-directives.js" />
@@ -49,8 +52,8 @@
     <Compile Include="modules\spotify\client\controllers\tableController.js" />
     <Compile Include="modules\spotify\client\tablesort.js" />
     <Compile Include="modules\spotify\client\directives\spotify-directives.js" />
+    <Compile Include="modules\spotify\server\spotifyGettersModule.js" />
     <Compile Include="modules\spotify\server\tableModule.js" />
-    <Compile Include="modules\shared\server\spotifyApiModule.js" />
     <Compile Include="modules\spotify\server\predictionModule.js" />
     <Compile Include="public\app.js" />
     <Compile Include="router.js" />
@@ -60,10 +63,12 @@
     <Content Include="modules\home\client\index.html" />
     <Content Include="modules\recap\client\css\index.css" />
     <Content Include="modules\recap\client\index.html" />
-    <Content Include="modules\recap\client\templates\loginCompleted.html" />
+    <Content Include="modules\recap\client\templates\instagramLoggedIn.html" />
+    <Content Include="modules\recap\client\templates\spotifyError.html" />
+    <Content Include="modules\recap\client\templates\spotifyLoggedIn.html" />
     <Content Include="modules\recap\client\templates\setlistSearch.html" />
+    <Content Include="modules\recap\client\templates\instagramLogin.html" />
     <Content Include="modules\recap\client\templates\spotifyLogin.html" />
-    <Content Include="modules\recap\client\templates\subpageNavBar.html" />
     <Content Include="modules\shared\client\subpageNavBar.html" />
     <Content Include="modules\spotify\client\css\index.css" />
     <Content Include="modules\spotify\client\index.html" />
@@ -83,7 +88,6 @@
     <Content Include="modules\spotify\client\templates\descriptionPanels.html" />
     <Content Include="modules\spotify\client\templates\playerColumn.html" />
     <Content Include="modules\spotify\client\templates\predictionColumn.html" />
-    <Content Include="modules\spotify\client\templates\subpageNavBar.html" />
     <Content Include="modules\spotify\client\templates\tableColumn.html" />
     <Content Include="semantic.json" />
     <Content Include="public\index.html" />

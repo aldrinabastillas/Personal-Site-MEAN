@@ -18,6 +18,12 @@
                 templateUrl: '/modules/home/client/templates/navigationBar.html'
             }
         })
+        .directive('subpageNavBar', function () {
+            return {
+                restrict: 'E',
+                templateUrl: '/modules/shared/client/subpageNavBar.html'
+            }
+        })
         .directive('introHeader', function () {
             return {
                 restrict: 'E',

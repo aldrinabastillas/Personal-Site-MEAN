@@ -1,7 +1,7 @@
 ﻿/* Private Properties */
 var express = require('express');
 var keys = require('./privateKeys');
-var spotify = require('../../shared/server/spotifyApiModule');
+var spotify = require('./spotifyGettersModule');
 var request = require('request');
 var app = express();
 

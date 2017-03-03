@@ -1,11 +1,5 @@
 ﻿(function () {
     angular.module('spotify-directives', [])
-        .directive('subpageNavBar', function () {
-            return {
-                restrict: 'E',
-                templateUrl: '/modules/spotify/client/templates/subpageNavBar.html',
-            }
-        })
         .directive('playerColumn', function () {
             return {
                 restrict: 'E',

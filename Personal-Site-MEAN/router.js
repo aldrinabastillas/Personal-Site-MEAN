@@ -31,9 +31,9 @@ router.use(bodyParser.json()); // for parsing json body of POST requests
 router.use('/', express.static(__dirname));
 router.use('/vendor', express.static(__dirname + '/node_modules/'));
 router.use('/home', express.static(__dirname + '/modules/home/client'));
+router.use('/shared', express.static(__dirname + '/modules/shared/client'));
 router.use('/spotify', express.static(__dirname + '/modules/spotify/client/'));
 router.use('/recap', recapRoutes);
-//router.use('/recap', express.static(__dirname + '/modules/recap/client/'));
 
 /**
  * Download resume link on /module/home/client/templates/contact.html
