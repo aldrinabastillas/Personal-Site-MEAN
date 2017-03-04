@@ -7,8 +7,8 @@
 <link href="/recap/css/index.css" rel="stylesheet" type="text/css">
 
 <subpage-nav-bar></subpage-nav-bar>
-<div ng-app="recapApp" class="recapApp container-fluid">
+<div ng-app="recapApp" ng-controller="SearchController as sc" class="recapApp container-fluid">
     <div class="row">
-        <setlist-search></setlist-search>
+        <artist-search></artist-search>
     </div>
 </div>

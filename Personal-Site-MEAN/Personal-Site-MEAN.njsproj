@@ -31,17 +31,19 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="modules\recap\client\controllers\instagramLoggedIn.js" />
+    <Compile Include="karma.conf.js" />
     <Compile Include="modules\recap\client\controllers\spotifyLoggedIn.js" />
     <Compile Include="modules\recap\client\controllers\loginController.js" />
-    <Compile Include="modules\recap\client\controllers\recapController.js" />
-    <Compile Include="modules\recap\client\controllers\setlistController.js" />
+    <Compile Include="modules\recap\client\modules\recapModule.js" />
+    <Compile Include="modules\recap\client\controllers\searchController.js" />
     <Compile Include="modules\recap\client\directives\recap-directives.js" />
-    <Compile Include="modules\recap\server\instagramModule.js" />
+    <Compile Include="modules\recap\client\services\setlistService.js" />
     <Compile Include="modules\recap\server\privateKeys.js" />
     <Compile Include="modules\recap\router.js" />
     <Compile Include="modules\recap\server\setlistModule.js" />
     <Compile Include="modules\recap\server\spotifyPlaylistModule.js" />
+    <Compile Include="modules\recap\tests\client\searchController.test.js" />
+    <Compile Include="modules\recap\tests\client\setlistService.test.js" />
     <Compile Include="modules\shared\server\privateKeys.js" />
     <Compile Include="modules\shared\server\spotifyQueryModule.js" />
     <Compile Include="modules\spotify\server\privateKeys.js" />
@@ -63,11 +65,9 @@
     <Content Include="modules\home\client\index.html" />
     <Content Include="modules\recap\client\css\index.css" />
     <Content Include="modules\recap\client\index.html" />
-    <Content Include="modules\recap\client\templates\instagramLoggedIn.html" />
     <Content Include="modules\recap\client\templates\spotifyError.html" />
     <Content Include="modules\recap\client\templates\spotifyLoggedIn.html" />
-    <Content Include="modules\recap\client\templates\setlistSearch.html" />
-    <Content Include="modules\recap\client\templates\instagramLogin.html" />
+    <Content Include="modules\recap\client\templates\artistSearch.html" />
     <Content Include="modules\recap\client\templates\spotifyLogin.html" />
     <Content Include="modules\shared\client\subpageNavBar.html" />
     <Content Include="modules\spotify\client\css\index.css" />
@@ -103,6 +103,11 @@
   <ItemGroup>
     <Folder Include="bin\" />
     <Folder Include="modules\home\" />
+    <Folder Include="modules\recap\client\modules\" />
+    <Folder Include="modules\recap\client\services\" />
+    <Folder Include="modules\recap\tests\" />
+    <Folder Include="modules\recap\tests\client\" />
+    <Folder Include="modules\recap\tests\server\" />
     <Folder Include="modules\shared\" />
     <Folder Include="modules\recap\" />
     <Folder Include="modules\recap\client\" />
@@ -129,7 +134,10 @@
     <Folder Include="modules\spotify\client\directives\" />
     <Folder Include="modules\spotify\server\" />
     <Folder Include="typings\globals\handlebars\" />
+    <Folder Include="typings\globals\jasmine\" />
     <Folder Include="typings\globals\jquery\" />
+    <Folder Include="typings\globals\karma-jasmine\" />
+    <Folder Include="typings\globals\karma\" />
     <Folder Include="typings\modules\" />
     <Folder Include="typings\modules\angular\" />
     <Folder Include="typings\modules\express\" />
@@ -144,7 +152,10 @@
   <ItemGroup>
     <TypeScriptCompile Include="typings\globals\bootstrap\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\handlebars\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\jasmine\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\jquery\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\karma-jasmine\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\karma\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\semantic-ui\index.d.ts" />
     <TypeScriptCompile Include="typings\index.d.ts" />

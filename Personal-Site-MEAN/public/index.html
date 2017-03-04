@@ -25,17 +25,18 @@
     <script src="/spotify/controllers/tableController.js"></script>
     <script src="/spotify/tablesort.js"></script>
 
+    <script src="/recap/modules/recapModule.js"></script>
+    <script src="/recap/services/setlistService.js"></script>
+    <script src="/recap/controllers/searchController.js"></script>
     <script src="/recap/directives/recap-directives.js"></script>
-    <script src="/recap/controllers/recapController.js"></script>
-    <script src="/recap/controllers/setlistController.js"></script>
 
     <dependencies></dependencies>
 
 </head>
-<body ng-controller="MainController" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body ng-controller="MainController as mc" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <ng-view autoscroll="true"></ng-view>
     <footer class="text-center">
-        <h4>-{{year}}-</h4>
+        <h4>-{{mc.year}}-</h4>
     </footer>
 </body>
 </html>
