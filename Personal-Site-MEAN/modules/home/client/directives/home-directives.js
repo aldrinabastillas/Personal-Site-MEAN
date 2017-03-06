@@ -1,51 +1,59 @@
 ﻿(function () {
-    angular.module('home-directives', [])
-        .directive('dependencies', function () {
-            return {
-                restrict: 'E',
-                templateUrl: '/modules/home/client/templates/dependencies.html'
-            }
-        })
+    angular
+        .module('mainApp')
+        .directive('dependencies', dependencies)
         .directive('visualizerModal', function () {
             return {
                 restrict: 'E',
-                templateUrl: '/modules/home/client/templates/visualizer.html'
+                templateUrl: '/home/templates/visualizer.html'
             }
         })
         .directive('navigationBar', function () {
             return {
                 restrict: 'E',
-                templateUrl: '/modules/home/client/templates/navigationBar.html'
+                templateUrl: '/home/templates/navigationBar.html'
             }
         })
         .directive('subpageNavBar', function () {
             return {
                 restrict: 'E',
-                templateUrl: '/modules/shared/client/subpageNavBar.html'
+                templateUrl: '/shared/subpageNavBar.html'
             }
         })
-        .directive('introHeader', function () {
-            return {
-                restrict: 'E',
-                templateUrl: '/modules/home/client/templates/introHeader.html'
-            }
-        })
+        .directive('introHeader', introHeader)
         .directive('projects', function () {
             return {
                 restrict: 'E',
-                templateUrl: '/modules/home/client/templates/projects.html'
+                templateUrl: '/home/templates/projects.html'
             }
         })
         .directive('contact', function () {
             return {
                 restrict: 'E',
-                templateUrl: '/modules/home/client/templates/contact.html'
+                templateUrl: '/home/templates/contact.html'
             }
         })
         .directive('images', function () {
             return {
                 restrict: 'E',
-                templateUrl: '/modules/home/client/templates/images.html'
+                templateUrl: '/home/templates/images.html'
             }
         });
+
+    function dependencies() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: '/home/templates/dependencies.html'
+        };
+        return directive;
+    };
+
+    function introHeader() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: '/home/templates/introHeader.html'
+        };
+        return directive;
+    };
+
 })();

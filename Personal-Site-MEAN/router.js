@@ -1,7 +1,5 @@
 ﻿'use strict';
-/**
- * Modules
- */
+// Modules
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
@@ -10,16 +8,12 @@ var upload = multer(); // for parsing multipart/form-data
 var NodeCache = require("node-cache");
 var cache = new NodeCache();
 
-/**
- * My Modules
- */
+// My Modules
 var predictions = require('./modules/spotify/server/predictionModule');
 var table = require('./modules/spotify/server/tableModule');
 var recapRoutes = require('./modules/recap/router');
 
-/**
- * Routes
- */
+//Routes
 var router = express.Router();
 function Path(file) {
     return path.join(__dirname + file);

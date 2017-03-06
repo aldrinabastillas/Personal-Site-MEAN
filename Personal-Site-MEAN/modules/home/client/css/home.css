@@ -231,12 +231,16 @@ a {
     }
 }
 
-#visualizerGif{
-    background: url(/home/content/images/visualizer.gif) no-repeat center;
-}
-
 #billboardImage{
      background: url(/home/content/images/billboard.jpg) no-repeat center;
+}
+
+#recapImage{
+     background: url(/home/content/images/japandroids.jpg) no-repeat center;
+}
+
+#visualizerGif{
+    background: url(/home/content/images/visualizer.gif) no-repeat center;
 }
 
 .projectThumb {
@@ -333,6 +337,10 @@ a {
     text-align: center;
     font-size: 12px;
 }
+
+    #images a{
+        text-decoration: underline;
+    }
 
     #images h6 {
         margin-top: 15px;

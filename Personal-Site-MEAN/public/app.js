@@ -1,12 +1,18 @@
 ﻿(function () {
-    /* Module */
     angular
-        .module('mainApp', ['ngRoute', 'home-directives', 'spotifyApp', 'recapApp'])
-        .controller('MainController', function () {
+        .module('mainApp', ['ngRoute', 'spotifyApp', 'recapApp'])
+        .controller('MainController', MainController)
+        .config(MainRoutes);
+
+        /**
+         * Just sets the year in the footer so far
+         */
+        function MainController(){
             var vm = this;
             vm.year = new Date().getFullYear();
-        })
-        .config(function ($routeProvider, $locationProvider) {
+        };
+
+        function MainRoutes ($routeProvider, $locationProvider) {
             /* Routes */
             //for ng-view on public/index.html
             $routeProvider
@@ -19,9 +25,8 @@
                 .when('/Recap', {
                     templateUrl: '/modules/recap/client/index.html',
                 });
-
-
             //remove !# from route
             //$locationProvider.html5Mode(true); //breaks when refreshing page
-        });
+        };
+
 })();
