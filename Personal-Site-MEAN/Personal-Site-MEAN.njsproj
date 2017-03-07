@@ -32,16 +32,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="karma.conf.js" />
-    <Compile Include="modules\recap\client\controllers\spotifyLoggedIn.js" />
-    <Compile Include="modules\recap\client\controllers\loginController.js" />
+    <Compile Include="modules\recap\client\controllers\loggedInController.js" />
     <Compile Include="modules\recap\client\modules\recapModule.js" />
     <Compile Include="modules\recap\client\controllers\searchController.js" />
     <Compile Include="modules\recap\client\directives\recap-directives.js" />
     <Compile Include="modules\recap\client\services\setlistService.js" />
-    <Compile Include="modules\recap\server\privateKeys.js" />
+    <Compile Include="modules\recap\client\services\sixpackService.js" />
+    <Compile Include="modules\recap\server\apiKeys.js" />
     <Compile Include="modules\recap\router.js" />
     <Compile Include="modules\recap\server\setlistModule.js" />
-    <Compile Include="modules\recap\server\spotifyPlaylistModule.js" />
+    <Compile Include="modules\recap\server\setlistParseModule.js" />
+    <Compile Include="modules\recap\server\spotifyModule.js" />
     <Compile Include="modules\recap\tests\client\searchController.test.js" />
     <Compile Include="modules\recap\tests\client\setlistService.test.js" />
     <Compile Include="modules\shared\server\privateKeys.js" />
@@ -61,14 +62,17 @@
     <Compile Include="router.js" />
     <Compile Include="server.js" />
     <None Include="aldrinabastillas - Web Deploy.pubxml" />
+    <Content Include="modules\home\client\content\images\japandroids.jpg" />
     <Content Include="modules\home\client\css\home.css" />
     <Content Include="modules\home\client\index.html" />
     <Content Include="modules\recap\client\css\index.css" />
     <Content Include="modules\recap\client\index.html" />
-    <Content Include="modules\recap\client\templates\spotifyError.html" />
+    <Content Include="modules\recap\client\templates\playlistSearch.html" />
+    <Content Include="modules\recap\client\templates\showSelect.html" />
+    <Content Include="modules\recap\client\templates\songList.html" />
     <Content Include="modules\recap\client\templates\spotifyLoggedIn.html" />
-    <Content Include="modules\recap\client\templates\artistSearch.html" />
     <Content Include="modules\recap\client\templates\spotifyLogin.html" />
+    <Content Include="modules\recap\client\templates\steps.html" />
     <Content Include="modules\shared\client\subpageNavBar.html" />
     <Content Include="modules\spotify\client\css\index.css" />
     <Content Include="modules\spotify\client\index.html" />

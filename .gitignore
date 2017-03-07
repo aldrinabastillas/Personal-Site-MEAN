@@ -1,5 +1,14 @@
 #My Additions
-database/
+Personal-Site-MEAN/modules/spotify/server/privateKeys.js
+Personal-Site-MEAN/modules/recap/server/privateKeys.js
+Personal-Site-MEAN/modules/shared/server/privateKeys.js
+Personal-Site-MEAN/.vscode/
+Personal-Site-MEAN/database/
+Personal-Site-MEAN/typings
+Personal-Site-MEAN/config.yml
+Personal-Site-MEAN/semantic
+
+
 *.pubxml
 
 ## Ignore Visual Studio temporary files, build results, and
@@ -244,34 +253,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
-Personal-Site-MEAN/modules/spotify/server/privateKeys.js
-Personal-Site-MEAN/modules/recap/server/privateKeys.js
-Personal-Site-MEAN/modules/shared/server/privateKeys.js
-
-Personal-Site-MEAN/.vscode/chrome/Certificate Revocation Lists
-
-Personal-Site-MEAN/.vscode/chrome/Local State
-
-Personal-Site-MEAN/.vscode/launch.json
-
-Personal-Site-MEAN/.vscode/chrome/Safe Browsing UwS List Prefix Set
-
-Personal-Site-MEAN/.vscode/chrome/Safe Browsing UwS List
-
-Personal-Site-MEAN/.vscode/chrome/Safe Browsing Bloom
-
-Personal-Site-MEAN/.vscode/chrome/Safe Browsing Bloom Prefix Set
-
-Personal-Site-MEAN/.vscode/chrome/Safe Browsing Csd Whitelist
-
-Personal-Site-MEAN/.vscode/chrome/Safe Browsing Download
-
-Personal-Site-MEAN/.vscode/chrome/Safe Browsing Download Whitelist
-
-Personal-Site-MEAN/.vscode/chrome/Safe Browsing Extension Blacklist
-
-Personal-Site-MEAN/.vscode/chrome/Safe Browsing IP Blacklist
-
-Personal-Site-MEAN/.vscode/chrome/Safe Browsing Module Whitelist
-
-Personal-Site-MEAN/.vscode/chrome/Safe Browsing Resource Blacklist
+Personal-Site-MEAN/modules/recap/server/apiKeys.js
