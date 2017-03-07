@@ -1,4 +1,4 @@
-﻿<div ng-controller="PredictionController" class="col-md-4 col-lg-4">
+﻿<div ng-controller="PredictionController as pc" class="col-md-4 col-lg-4">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">Predictions</h4>
@@ -13,16 +13,16 @@
                 <div class="results"></div>
             </div>
             <br />
-            <div ng-hide="prediction || errorText" id="searchHelp">
+            <div ng-hide="pc.prediction || pc.errorText" id="searchHelp">
                 <p>
                     Search above for a song to predict if it would be on
                     the Billboard Hot 100 chart!
                 </p>
             </div>
-            <h3 ng-show="errorText" id="errorText">{{errorText}}</h3>
-            <h2 ng-show="prediction" id="predictionText">
-                {{selectedSong}} by {{selectedArtist}} <br />
-                is {{probability}} {{prediction}} <br />
+            <h3 ng-show="pc.errorText" id="errorText">{{pc.errorText}}</h3>
+            <h2 ng-show="pc.prediction" id="pc.predictionText">
+                {{pc.selectedSong}} by {{pc.selectedArtist}} <br />
+                is {{pc.probability}} {{pc.prediction}} <br />
                 to be a Billboard Top 100 Song.
             </h2>
         </div>

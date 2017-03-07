@@ -1,51 +1,84 @@
 ﻿(function () {
-    var app = angular.module('predictionApp', []);
+    'use strict';
 
-    app.controller('PredictionController', ['$scope', '$http', function ($scope, $http) {
-        //free text search songs in Spotify
-        $scope.songSearch = $('#songSearch').search({
-            apiSettings: {
-                url: 'https://api.spotify.com/v1/search?q={query}&type=track',
-                onResponse: function (spotifyResponse) {
-                    var response = {
-                        results: []
-                    };
+    angular
+        .module('spotifyApp')
+        .controller('PredictionController', PredictionController);
 
-                    //iterate through results from Spotify
-                    //See https://developer.spotify.com/web-api/search-item/ for structure
-                    $.each(spotifyResponse.tracks.items, function (i, track) {
-                        response.results.push({
-                            title: track.name,
-                            description: track.artists[0].name,
-                            image: track.album.images[2].url,
-                            id: track.id
+    PredictionController.$inject = ['$http'];
+
+    function PredictionController($http) {
+        var vm = this;
+
+        //Public Functions
+        vm.getPrediction = getPrediction;
+        vm.songSearch = songSearch;
+        
+
+        //Public Properties
+        vm.errorText = '';
+        vm.prediction = '';
+        vm.probability = '';
+        vm.selectedSong = '';
+        vm.selectedArtist = '';
+
+
+        //Implementations
+
+        /**
+         * Free text search songs in Spotify's library
+         */
+        function getSongSearchOptions() {
+            var options = {
+                apiSettings: {
+                    url: 'https://api.spotify.com/v1/search?q={query}&type=track',
+                    onResponse: function (spotifyResponse) {
+                        var response = {
+                            results: []
+                        };
+
+                        //iterate through results from Spotify
+                        //See https://developer.spotify.com/web-api/search-item/ for structure
+                        $.each(spotifyResponse.tracks.items, function (i, track) {
+                            response.results.push({
+                                title: track.name,
+                                description: track.artists[0].name,
+                                image: track.album.images[2].url,
+                                id: track.id
+                            });
                         });
-                    });
-                    return response;
+                        return response;
+                    }
+                },
+                fields: { //map results from Spotify to Semantic-UI API
+                    results: 'results',
+                    title: 'title',
+                    description: 'description',
+                    image: 'image'
+                },
+                minCharacters: 3,
+                onSelect: function (result, response) {
+                    //call getPrediction below
+                    vm.getPrediction(result.id);
+                    vm.selectedSong = result.title;
+                    vm.selectedArtist = result.description;
+
+                    var url = 'https://embed.spotify.com/?uri=spotify:track:' + result.id;
+                    $('#spotifyPlayer').attr('src', url); //change song in the player
+                    //$('#play-button').click(); //not supported by Spotify
                 }
-            },
-            fields: { //map results from Spotify to Semantic-UI API
-                results: 'results',
-                title: 'title',
-                description: 'description',
-                image: 'image'
-            },
-            minCharacters: 3,
-            onSelect: function (result, response) {
-                //call getPrediction below
-                $scope.getPrediction(result.id);
-                $scope.selectedSong = result.title;
-                $scope.selectedArtist = result.description;
+            };
+            return options;
+        };
 
-                var url = 'https://embed.spotify.com/?uri=spotify:track:' + result.id;
-                $('#spotifyPlayer').attr('src', url); //change song in the player
-                //$('#play-button').click(); //not supported by Spotify
-            }
-        });
-
-        //gets a prediction for a song
-        $scope.getPrediction = function (songId) {
-            $http.get('/getPrediction' + songId)
+        
+        /**
+         * Gets a prediction for a song given a Spotify song ID
+         * Called from getSongSearchOptions
+         * @param {string} songId 
+         */
+        function getPrediction(songId) {
+            $http.get('/spotify/getPrediction/' + songId)
                 .then(function successHandler(response) {
                     var label = response.data['Scored Labels'];
                     var probability = response.data['Scored Probabilities'] * 100;
@@ -56,12 +89,15 @@
                         prediction = 'not likely';
                     }
 
-                    $scope.prediction = prediction;
-                    $scope.probability = probability.toFixed(2) + '%';
+                    vm.prediction = prediction;
+                    vm.probability = probability.toFixed(2) + '%';
                 },
                 function errorHandler(response) {
-                    $scope.errorText = response.data;
+                    vm.errorText = response.data;
                 });
         };
-    }]);
+
+        var songSearch = $('#songSearch').search(getSongSearchOptions());
+    }; //end controller
+
 })();

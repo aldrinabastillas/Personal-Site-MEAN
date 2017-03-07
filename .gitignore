@@ -4,9 +4,10 @@ Personal-Site-MEAN/modules/recap/server/privateKeys.js
 Personal-Site-MEAN/modules/shared/server/privateKeys.js
 Personal-Site-MEAN/.vscode/
 Personal-Site-MEAN/database/
-Personal-Site-MEAN/typings
+Personal-Site-MEAN/typings/
 Personal-Site-MEAN/config.yml
-Personal-Site-MEAN/semantic
+Personal-Site-MEAN/semantic/
+
 
 
 *.pubxml
@@ -253,4 +254,3 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
-Personal-Site-MEAN/modules/recap/server/apiKeys.js

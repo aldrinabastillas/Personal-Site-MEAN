@@ -1,4 +1,6 @@
 ﻿(function () {
+    'use strict';
+
     angular
         .module('mainApp', ['ngRoute', 'spotifyApp', 'recapApp'])
         .controller('MainController', MainController)

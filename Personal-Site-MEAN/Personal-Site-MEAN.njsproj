@@ -38,7 +38,7 @@
     <Compile Include="modules\recap\client\directives\recap-directives.js" />
     <Compile Include="modules\recap\client\services\setlistService.js" />
     <Compile Include="modules\recap\client\services\sixpackService.js" />
-    <Compile Include="modules\recap\server\apiKeys.js" />
+    <Compile Include="modules\recap\server\privateKeys.js" />
     <Compile Include="modules\recap\router.js" />
     <Compile Include="modules\recap\server\setlistModule.js" />
     <Compile Include="modules\recap\server\setlistParseModule.js" />
