@@ -1,5 +1,8 @@
 ﻿(function () {
-    angular.module('spotify-directives', [])
+    'use strict';
+    
+    angular
+        .module('spotifyApp')
         .directive('playerColumn', function () {
             return {
                 restrict: 'E',

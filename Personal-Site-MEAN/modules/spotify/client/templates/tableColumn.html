@@ -1,4 +1,4 @@
-﻿<div class="col-md-4 col-lg-4" ng-controller="TableController">
+﻿<div class="col-md-4 col-lg-4" ng-controller="TableController as tc">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h5 class="panel-title">Billboard Hot 100 Songs</h5>
@@ -7,8 +7,8 @@
             <form>
                 <label for="yearDropdown">Year: &nbsp;</label>
                 <select name="singleSelect" id="yearDropdown"
-                        ng-model="selectedYear" ng-change="getYearList(selectedYear)"
-                        ng-options="year for year in availableYears"></select>
+                        ng-model="tc.selectedYear" ng-change="tc.getYearList(tc.selectedYear)"
+                        ng-options="year for year in tc.availableYears"></select>
             </form>
             <br />
 
@@ -22,7 +22,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="song in billboardSongs">
+                        <tr ng-repeat="song in tc.billboardSongs">
                             <td class="left aligned">{{song.Position}}</td>
                             <td>{{song.Song}}</td>
                             <td>{{song.Artist}}</td>

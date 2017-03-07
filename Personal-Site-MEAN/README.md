@@ -1,29 +1,31 @@
 ﻿# [aldrinabastillas.com](http://www.aldrinabastillas.com)
 
 ## Background
-This is my personal site with a link to my Billboard Hot 100 Predictor project, audio visualizer project, links to past projects, and contact information.  
+This is my personal site with a links to projects I've worked on my free time, links to past projects, and contact information.  
 
 ## Technologies
 * Web-app framework: [Express.js](http://expressjs.com/), [Node.js](https://nodejs.org/en/)
 * Front-end frameworks: [AngularJS](https://angularjs.org/), [Bootstrap](http://getbootstrap.com/), 
 					    [Semantic UI](http://semantic-ui.com/)
-* Game engine: [Unity3D](https://unity3d.com/)
 * Database: [MongoDB](https://www.mongodb.com/)
+* Testing: [Karma](https://karma-runner.github.io/1.0/index.html), [Jasmine](https://jasmine.github.io/), [SixPack](http://sixpack.seatgeek.com/) 
 * Home page layout: [Start Bootstrap](https://startbootstrap.com/template-overviews/grayscale/)
-* Web Services: [Microsoft Azure Machine Learning Studio](https://studio.azureml.net/), 
-                [Spotify Web API](https://developer.spotify.com/web-api/)
+* Game engine: [Unity3D](https://unity3d.com/)
 * JavaScript Libraries: [jQuery](http://jquery.com/)
+* Web Services: [Microsoft Azure Machine Learning Studio](https://studio.azureml.net/), 
+                [Spotify Web API](https://developer.spotify.com/web-api/), 
+                [Setlist.fm API](http://api.setlist.fm/docs/index.html)
 
 ## Files
-Notable files include:
+Some notable files for the main site and the Billboard Hot 100 Predictor project include:
 
 #### Server Side
 * [server.js](https://github.com/aldrinabastillas/Personal-Site-MEAN/blob/master/Personal-Site-MEAN/server.js)
   Starts the server with Node.js and Express.js
 * [router.js](https://github.com/aldrinabastillas/Personal-Site-MEAN/blob/master/Personal-Site-MEAN/router.js)
-  Middleware app to route requests
-* [spotifyApiModule.js](https://github.com/aldrinabastillas/Personal-Site-MEAN/blob/master/Personal-Site-MEAN/modules/spotify/server/spotifyApiModule.js)
-  Wrappers around the Spotify Web APIs
+  Main middleware app to route requests and load other module's routers
+* [spotifyQueryModule.js](https://github.com/aldrinabastillas/Personal-Site-MEAN/blob/master/Personal-Site-MEAN/modules/shared/server/spotifyQueryModule.js)
+  Wrappers around GET requests to Spotify Web APIs
 * [predictionModule.js](https://github.com/aldrinabastillas/Personal-Site-MEAN/blob/master/Personal-Site-MEAN/modules/spotify/server/predictionModule.js)
   Calls the Microsoft Machine Learning Studio Web API
 * [tableModule.js](https://github.com/aldrinabastillas/Personal-Site-MEAN/blob/master/Personal-Site-MEAN/modules/spotify/server/tableModule.js)

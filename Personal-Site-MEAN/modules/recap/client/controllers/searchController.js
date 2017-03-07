@@ -10,7 +10,7 @@
     function SearchController($http, $window, setlistService, sixpackService) {
         var vm = this; //ViewModel
 
-        //Functions
+        //Public Functions
         vm.artistSearch = artistSearch;
         vm.getArtistSetlists = getArtistSetlists;
         vm.getSetlistSongs = getSetlistSongs;
@@ -20,7 +20,7 @@
         vm.spotifyLogin = spotifyLogin;
         vm.venueSearch = venueSearch;
 
-        //Properties
+        //Public Properties
         vm.error = null;
         vm.playlist = null;
         vm.setlists = null;

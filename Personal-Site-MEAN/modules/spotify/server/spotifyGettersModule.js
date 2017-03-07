@@ -1,52 +1,18 @@
 ﻿(function () {
     'use strict';
-    /**
-     * Modules
-     */
+
+    // Modules
     var request = require('request');
     var app = require('express')();
     var spotify = require('../../shared/server/spotifyQueryModule');
 
-    /** 
-     * Public Functions
-     */
+    // Public Functions
+    exports.getAudioFeatures = getAudioFeatures;
+    exports.getTrackReleaseDate = getTrackReleaseDate;
 
-    /**
-     * Given a song selected from the dropdown in /modules/spotify/client/templates/predictionColumn.html
-     * returns the song's audio features. 
-     * See https://developer.spotify.com/web-api/get-audio-features/
-     * Calls https://api.spotify.com/v1/audio-features/{id}
-     * @param songId
-     */
-    exports.getAudioFeatures = function (songId) {
-        return new Promise(function (resolve, reject) {
-            var endpoint = 'https://api.spotify.com/v1/audio-features/' + songId;
-            spotify.getSpotifyQuery(endpoint).then(function (result) {
-                resolve(result);
-            }).catch(function (reason) {
-                reject(reason);
-            });
-        });
-    };
 
-    /**
-     * Gets the year a track was released by first getting its album
-       and then returning the Date the album was released
-     * @param songId
-     */
-    exports.getTrackReleaseDate = function (songId) {
-        return new Promise(function (resolve, reject) {
-            getAlbumId(songId).then(function (result) {
-                resolve(getAlbumReleaseDate(result));
-            }).catch(function (reason) {
-                reject(reason);
-            });
-        });
-    };
+    // Function Implementations
 
-    /** 
-     * Private Functions
-     */
 
     /**
      * Gets the album ID for a song.
@@ -68,6 +34,7 @@
             });
         });
     };
+
 
     /**
      * Gets the release date for an album
@@ -91,4 +58,40 @@
             });
         });
     };
+
+
+    /**
+     * Given a song selected from the dropdown in /modules/spotify/client/templates/predictionColumn.html
+     * returns the song's audio features. 
+     * See https://developer.spotify.com/web-api/get-audio-features/
+     * Calls https://api.spotify.com/v1/audio-features/{id}
+     * @param songId
+     */
+    function getAudioFeatures(songId) {
+        return new Promise(function (resolve, reject) {
+            var endpoint = 'https://api.spotify.com/v1/audio-features/' + songId;
+            spotify.getSpotifyQuery(endpoint).then(function (result) {
+                resolve(result);
+            }).catch(function (reason) {
+                reject(reason);
+            });
+        });
+    };
+
+
+    /**
+     * Gets the year a track was released by first getting its album
+       and then returning the Date the album was released
+     * @param songId
+     */
+    function getTrackReleaseDate(songId) {
+        return new Promise(function (resolve, reject) {
+            getAlbumId(songId).then(function (result) {
+                resolve(getAlbumReleaseDate(result));
+            }).catch(function (reason) {
+                reject(reason);
+            });
+        });
+    };
+
 })(); //end closure
