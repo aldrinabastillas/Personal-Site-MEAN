@@ -31,11 +31,19 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="bundles\homeBundle.js" />
+    <Compile Include="bundles\recapBundle.js" />
+    <Compile Include="bundles\spotifyBundle.js" />
+    <Compile Include="bundles\vendorBundle.js" />
     <Compile Include="karma.conf.js" />
+    <Compile Include="gulpfile.js" />
     <Compile Include="modules\recap\client\controllers\loggedInController.js" />
+    <Compile Include="modules\recap\client\directives\playlistSearch.js" />
+    <Compile Include="modules\recap\client\directives\showSelect.js" />
+    <Compile Include="modules\recap\client\directives\songList.js" />
+    <Compile Include="modules\recap\client\directives\steps.js" />
     <Compile Include="modules\recap\client\modules\recapModule.js" />
     <Compile Include="modules\recap\client\controllers\searchController.js" />
-    <Compile Include="modules\recap\client\directives\recap-directives.js" />
     <Compile Include="modules\recap\client\services\setlistService.js" />
     <Compile Include="modules\recap\client\services\sixpackService.js" />
     <Compile Include="modules\recap\server\privateKeys.js" />
@@ -47,11 +55,12 @@
     <Compile Include="modules\recap\tests\client\setlistService.test.js" />
     <Compile Include="modules\shared\server\privateKeys.js" />
     <Compile Include="modules\shared\server\spotifyQueryModule.js" />
+    <Compile Include="modules\spotify\client\modules\spotifyModule.js" />
+    <Compile Include="modules\spotify\router.js" />
     <Compile Include="modules\spotify\server\privateKeys.js" />
     <Compile Include="modules\home\client\menuBar.js" />
     <Compile Include="modules\home\client\directives\home-directives.js" />
     <Compile Include="modules\spotify\client\controllers\predictionController.js" />
-    <Compile Include="modules\spotify\client\controllers\spotifyController.js" />
     <Compile Include="modules\spotify\client\controllers\tableController.js" />
     <Compile Include="modules\spotify\client\tablesort.js" />
     <Compile Include="modules\spotify\client\directives\spotify-directives.js" />
@@ -73,6 +82,7 @@
     <Content Include="modules\recap\client\templates\spotifyLoggedIn.html" />
     <Content Include="modules\recap\client\templates\spotifyLogin.html" />
     <Content Include="modules\recap\client\templates\steps.html" />
+    <Content Include="modules\recap\README.md" />
     <Content Include="modules\shared\client\subpageNavBar.html" />
     <Content Include="modules\spotify\client\css\index.css" />
     <Content Include="modules\spotify\client\index.html" />
@@ -106,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
+    <Folder Include="bundles\" />
     <Folder Include="modules\home\" />
     <Folder Include="modules\recap\client\modules\" />
     <Folder Include="modules\recap\client\services\" />
@@ -134,6 +145,7 @@
     <Folder Include="modules\spotify\" />
     <Folder Include="modules\spotify\client\" />
     <Folder Include="modules\spotify\client\controllers\" />
+    <Folder Include="modules\spotify\client\modules\" />
     <Folder Include="modules\spotify\client\templates\" />
     <Folder Include="modules\spotify\client\directives\" />
     <Folder Include="modules\spotify\server\" />

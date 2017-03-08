@@ -1,8 +1,9 @@
 ﻿(function () {
+    'use strict';
+
     angular
         .module('mainApp')
         .directive('contact', contact)
-        .directive('dependencies', dependencies)
         .directive('images', images)
         .directive('introHeader', introHeader)
         .directive('navigationBar', navigationBar)
@@ -15,14 +16,6 @@
             restrict: 'E',
             templateUrl: '/home/templates/contact.html'
         }
-        return directive;
-    };
-
-    function dependencies() {
-        var directive = {
-            restrict: 'E',
-            templateUrl: '/home/templates/dependencies.html'
-        };
         return directive;
     };
 

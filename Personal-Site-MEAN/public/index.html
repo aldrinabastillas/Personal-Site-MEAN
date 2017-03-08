@@ -12,31 +12,19 @@
     <link href="/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="/home/css/home.css" rel="stylesheet" type="text/css" />
 
+    <!-- Fonts / Icons-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
     <!-- Vendor JavaScript-->
-    <script src="/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="/vendor/angular/angular.min.js"></script>
-    <script src="/vendor/angular-route/angular-route.min.js"></script>
-    <script src="/vendor/sixpack-client/sixpack.js"></script>
+    <script src="/bundles/vendorBundle.js"></script>
 
-    <!-- Angular Dependencies -->
-    <script src="/public/app.js"></script>
-    <script src="/home/directives/home-directives.js"></script>
-
-    <script src="/spotify/modules/spotifyModule.js"></script>
-    <script src="/spotify/directives/spotify-directives.js"></script>
-    <script src="/spotify/controllers/predictionController.js"></script>
-    <script src="/spotify/controllers/tableController.js"></script>
-    <script src="/spotify/tablesort.js"></script>
-
-    <script src="/recap/modules/recapModule.js"></script>
-    <script src="/recap/services/sixpackService.js"></script>
-    <script src="/recap/services/setlistService.js"></script>
-    <script src="/recap/controllers/searchController.js"></script>
-    <script src="/recap/controllers/loggedInController.js"></script>
-    <script src="/recap/directives/recap-directives.js"></script>
-
-    <!-- Other dependencies that can be loaded later-->
-    <dependencies></dependencies>
+    <!-- Module Files -->
+    <script src="/bundles/moduleBundle.js"></script>
+    <script src="/bundles/homeBundle.js"></script>
+    <script src="/bundles/recapBundle.js"></script>
+    <script src="/bundles/spotifyBundle.js"></script>
 
 </head>
 

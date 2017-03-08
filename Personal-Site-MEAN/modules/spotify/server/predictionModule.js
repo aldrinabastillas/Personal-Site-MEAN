@@ -51,7 +51,7 @@
     function formatInput(audioFeatures, date) {
         var year = date.toString().split('-')[0];
         var decade = Math.floor(year / 10) * 10;
-        return input = {
+        var input = {
             'Inputs': {
                 'input1': [
                     {
@@ -70,6 +70,7 @@
             },
             'GlobalParameters': {}
         };
+        return input;
     };
 
     /**
