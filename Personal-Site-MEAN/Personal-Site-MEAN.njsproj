@@ -53,6 +53,7 @@
     <Compile Include="modules\recap\server\spotifyModule.js" />
     <Compile Include="modules\recap\tests\client\searchController.test.js" />
     <Compile Include="modules\recap\tests\client\setlistService.test.js" />
+    <Compile Include="modules\shared\client\subpageNavBar.js" />
     <Compile Include="modules\shared\server\privateKeys.js" />
     <Compile Include="modules\shared\server\spotifyQueryModule.js" />
     <Compile Include="modules\spotify\client\modules\spotifyModule.js" />

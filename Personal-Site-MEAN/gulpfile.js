@@ -22,6 +22,7 @@
             './modules/recap/client/modules/recapModule.js',
             './modules/spotify/client/modules/spotifyModule.js'])
             .pipe(concat('moduleBundle.js'))
+            //.pipe(uglify())
             .pipe(gulp.dest('./bundles/'));
     };
 
@@ -40,7 +41,7 @@
             './modules/recap/client/services/setlistService.js',
             './modules/recap/client/controllers/loggedInController.js',
             './modules/recap/client/controllers/searchController.js',
-            './modules/recap/client/directives/songSelect.js',
+            './modules/recap/client/directives/songList.js',
             './modules/recap/client/directives/steps.js',
             './modules/recap/client/directives/showSelect.js',
             './modules/recap/client/directives/playlistSearch.js'])
